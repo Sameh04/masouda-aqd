@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0e5c4c">
+<meta name="color-scheme" content="light">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; font-src data:; img-src data:; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2024%2024%27%3E%3Crect%20width=%2724%27%20height=%2724%27%20rx=%275%27%20fill=%27%230e5c4c%27/%3E%3Cpath%20d=%27M8%206h6l3%203v9H8z%27%20fill=%27none%27%20stroke=%27white%27%20stroke-width=%271.6%27/%3E%3C/svg%3E">
+<meta name="description" content="مسودة عقد بيع أو إيجار من كلامك بالعامية المصرية، مع مراجعة على القانون المدني. مسودة استرشادية ليست استشارة قانونية.">
+<title>مسودة عقد من كلامك</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+ --ink:#14232a;--ink2:#3d4e55;--mute:#53656c;--line:#e4dfd4;--bg:#f4f1ea;--card:#fff;
+ --g900:#0a3f34;--g700:#0e5c4c;--g600:#127560;--g100:#dcefe8;--g50:#eef7f3;
+ --amber:#8a5a00;--amberbg:#fff4d9;--amberb:#efd48f;--blue:#254f8f;--bluebg:#eaf1fb;--blueb:#c6d6ee;--red:#c2272d;--paper:#fffdf7;
+ --r1:12px;--r2:18px;--r3:24px;--sh1:0 1px 2px rgba(40,30,10,.06),0 2px 8px rgba(40,30,10,.05);--sh2:0 8px 28px rgba(40,30,10,.12)}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.8 'Tajawal',system-ui,'Segoe UI',Tahoma,Arial,sans-serif}
+svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+svg.i.sm{width:18px;height:18px}svg.i.lg{width:30px;height:30px}
+main{max-width:720px;margin:0 auto;padding:0 16px 130px}
+.hero{background:radial-gradient(120% 140% at 100% 0,#16856d 0,#0e5c4c 45%,#0a3f34 100%);color:#fff;margin:0 -16px 0;padding:28px 20px 56px;border-radius:0 0 30px 30px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:auto -40px -60px auto;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.06)}
+.hero .logo{width:48px;height:48px;border-radius:16px;background:rgba(255,255,255,.15);display:grid;place-items:center;margin-bottom:14px;color:#fff}
+h1{font-size:30px;line-height:1.3;margin:0 0 8px;font-weight:700}
+.hero p{margin:0;font-size:16px;line-height:1.75;color:#d3ece4;max-width:34em}
+.hero .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.hero .chips span{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.13);border-radius:999px;padding:2px 10px 2px 11px;font-size:13px}
+.panel{background:var(--card);border-radius:var(--r3);box-shadow:var(--sh2);padding:18px 16px 16px;margin:-34px 0 0;position:relative}
+h2{font-size:19px;margin:0 0 10px;display:flex;align-items:center;gap:10px;font-weight:700}
+h2 .n{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--g700);color:#fff;font-size:15px}
+.sect{margin:26px 0 0}
+.sect>h2{margin-top:0}
+h3{font-size:15px;margin:18px 0 6px;color:var(--mute);font-weight:700;display:flex;align-items:center;gap:6px}
+p{margin:6px 0}
+.sub{color:var(--mute);font-size:15px}
+.seg{display:grid;grid-template-columns:1fr 1fr;background:#ece8de;border-radius:var(--r2);padding:5px;gap:5px;margin-bottom:16px}
+.seg button{min-height:54px;border:0;background:transparent;border-radius:14px;font-size:18px;font-weight:700;color:var(--mute);display:flex;align-items:center;justify-content:center;gap:8px}
+.seg button.on{background:#fff;color:var(--g700);box-shadow:0 2px 8px rgba(0,0,0,.13)}
+button{font:inherit;min-height:52px;padding:0 18px;border-radius:var(--r2);border:1.5px solid #d6d0c4;background:#fff;color:var(--ink);cursor:pointer;font-weight:700;font-size:16.5px;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+button:active{transform:scale(.98)}
+button:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #7fb8a8;outline-offset:2px}
+button.primary{background:var(--g700);color:#fff;border-color:var(--g700);font-size:18px;min-height:58px;box-shadow:0 4px 14px rgba(14,92,76,.28)}
+.tips{font-size:15.5px;color:var(--ink2);background:var(--g50);border:1px solid #cfe6dd;border-radius:var(--r2);padding:2px 16px;margin:0 0 12px}
+.tips summary{cursor:pointer;font-weight:700;color:var(--g700);min-height:46px;display:flex;align-items:center;gap:8px;list-style:none}
+.tips summary::-webkit-details-marker{display:none}
+.tips summary .chev{margin-inline-start:auto;transition:transform .2s}
+.tips[open] summary .chev{transform:rotate(180deg)}
+.tips ul{margin:0 0 10px;padding:0 20px 0 0}
+.tips li{margin:4px 0}
+.field{position:relative}
+textarea{width:100%;min-height:200px;font:inherit;font-size:18px;line-height:1.95;padding:16px;border:1.5px solid #d6d0c4;border-radius:var(--r2);color:var(--ink);resize:vertical;background:#fdfcf9;display:block}
+textarea::placeholder{color:#6b7a80}
+textarea:focus{border-color:var(--g600);background:#fff}
+#status:empty{display:none}#status{min-height:22px;font-size:15px;color:var(--mute);margin:6px 2px 0;display:flex;align-items:center;gap:6px}
+.err{color:var(--red)!important}
+.bar2{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;margin-top:12px}
+.mic{width:68px;height:68px;min-height:68px;padding:0;border-radius:50%;background:var(--g50);border:2px solid #a9d3c5;color:var(--g700);position:relative}
+.mic svg.i{width:30px;height:30px}
+.mic.rec{background:var(--red);border-color:var(--red);color:#fff;animation:pulse 1.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(194,39,45,.45)}100%{box-shadow:0 0 0 18px rgba(194,39,45,0)}}
+.lbl{font-size:13.5px;color:var(--mute);text-align:center;margin-top:2px}
+.micwrap{display:flex;flex-direction:column;align-items:center}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.row2 button{min-height:46px;font-size:15.5px;color:var(--ink2);font-weight:700}
+.disc{display:flex;gap:10px;background:#fff4e0;border:1.5px solid #e9b54a;border-radius:var(--r2);padding:12px 14px;margin:0 0 12px;font-size:15px;line-height:1.75;color:#4a3300}.disc b{display:block;font-size:16px}.disc svg{flex:none;margin-top:4px;color:#a86a00}
+.note{display:flex;gap:10px;background:#efe9df;border-radius:var(--r2);padding:14px 16px;margin:16px 0 0;font-size:14.5px;line-height:1.75;color:var(--ink2)}
+.note svg{margin-top:4px;color:var(--g700)}
+.note b{display:block;margin-bottom:1px;color:var(--ink)}
+.sum{background:var(--card);border:1px solid var(--line);border-radius:var(--r3);padding:16px;margin:0 0 4px;box-shadow:var(--sh1);display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center}
+.sum.bad{background:#fffaf0;border-color:var(--amberb)}
+.ring{--p:0;width:82px;height:82px;border-radius:50%;background:conic-gradient(var(--g600) calc(var(--p)*1%),#e8e3d8 0);display:grid;place-items:center;position:relative}
+.sum.bad .ring{background:conic-gradient(#d99a12 calc(var(--p)*1%),#eadfc3 0)}
+.ring:before{content:"";position:absolute;inset:9px;background:#fff;border-radius:50%}
+.sum.bad .ring:before{background:#fffaf0}
+.ring b{position:relative;font-size:22px;line-height:1;font-weight:700;text-align:center}
+.ring small{display:block;font-size:12px;color:var(--mute);font-weight:400;margin-top:2px}
+.sum .tt{font-size:19px;font-weight:700;line-height:1.5}
+.sum .sub{font-size:14.5px;line-height:1.65;margin-top:4px}
+.chk{background:var(--card);border:1px solid var(--line);border-radius:var(--r2);padding:13px 14px;margin:10px 0;display:flex;gap:12px;align-items:flex-start;box-shadow:var(--sh1)}
+.chk .ic{flex:none;width:36px;height:36px;border-radius:12px;display:grid;place-items:center}
+.chk.x{background:#fffaf0;border-color:var(--amberb)}
+.chk.x .ic{background:var(--amberbg);color:var(--amber)}
+.chk.i{background:#f7faff;border-color:var(--blueb)}
+.chk.i .ic{background:var(--bluebg);color:var(--blue)}
+.chk b{display:block;line-height:1.55;font-size:17px}
+.chk .d{color:var(--ink2);font-size:15px;line-height:1.7;margin-top:2px}
+.art{display:inline-block;background:#efe9df;border-radius:8px;padding:0 8px;font-size:13px;margin-inline-start:8px;color:var(--mute);font-weight:400;line-height:1.7;vertical-align:1px}
+.oks{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0}
+.ok{background:var(--g100);color:var(--g700);border-radius:999px;padding:3px 12px 3px 14px;font-size:15px;font-weight:700;display:inline-flex;align-items:center;gap:5px}
+.ok .art{background:#fff;margin-inline-start:4px}
+.doc{background:var(--paper);border-radius:4px;padding:0 0 22px;margin:12px 0;box-shadow:0 10px 30px rgba(60,45,10,.16),0 0 0 1px #e6dfcd;font-family:'NaskhDoc','Tajawal',serif;position:relative;overflow:hidden}
+.doc:before{content:"";display:block;height:8px;background:linear-gradient(90deg,var(--g900),var(--g600))}
+.doc .in{padding:22px 20px 0}
+.doc .t{font-size:30px;font-weight:700;text-align:center;margin:0 0 6px;color:var(--g900)}
+.doc .tl{height:2px;margin:0 auto 20px;width:96px;background:#b8a874;border-radius:2px}
+.doc p{line-height:2.15;margin:0 0 12px;font-size:19.5px;text-align:justify}
+.doc .cl{margin:0 0 14px}
+.doc .ch{display:flex;align-items:center;gap:8px;font-weight:700;color:var(--g700);font-size:18px;line-height:1.7;margin-bottom:0}
+.doc .ch:after{content:"";flex:1;height:1px;background:#e3dcc8}
+.doc .ch em{font-style:normal;color:var(--ink2);font-weight:400}
+.doc .cl p{margin:0}
+.doc .sigs{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+.doc .sg{border-top:1.5px solid #8a8f8c;padding-top:6px;text-align:center;font-size:17px;line-height:1.6}
+.doc .sg small{display:block;color:var(--mute);font-size:14px}
+mark{background:var(--amberbg);color:#5e3d00;padding:0 6px;border-radius:6px;font-weight:700;box-shadow:inset 0 -2px 0 var(--amberb)}
+.ref{background:var(--card);border:1px solid var(--line);border-radius:var(--r2);padding:12px 14px;margin:8px 0;box-shadow:var(--sh1)}.ref b{display:inline-block;color:var(--g700);background:var(--g50);border-radius:8px;padding:0 10px;margin-bottom:2px}.ref span{display:block;color:var(--ink);font-size:16px;line-height:1.85}
+footer{color:var(--mute);font-size:14px;line-height:1.85;margin-top:30px;border-top:1px solid var(--line);padding-top:14px}
+.dock{position:fixed;inset-inline:0;bottom:0;background:rgba(255,253,247,.96);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom));display:grid;grid-template-columns:1.2fr 1fr;gap:10px;max-width:720px;margin:0 auto;box-shadow:0 -8px 24px rgba(60,45,10,.10);border-radius:20px 20px 0 0}
+.dock[hidden]{display:none}
+.hint{display:flex;gap:8px;align-items:flex-start;color:var(--ink2);font-size:15px;margin:2px 0 10px}
+@media(min-width:560px){.hero{border-radius:0 0 30px 30px}}
+
+.lawbar{background:#fff4e0;border-bottom:1.5px solid #e9b54a;color:#4a3300;font-size:14px;line-height:1.6;padding:8px 14px;text-align:center}
+.lawbar a{color:#4a3300;font-weight:700}
+nav.fnav{display:flex;flex-wrap:wrap;gap:6px 16px;margin:18px 0 0;padding:0;font-size:15px}
+nav.fnav a{color:var(--ink2);text-underline-offset:3px;padding:6px 0;min-height:24px}
+.pg{background:var(--card);border:1px solid var(--line);border-radius:var(--r2);padding:18px 16px;margin:14px 12px}
+.pg h1{margin:0 0 10px;font-size:24px}.pg h2{margin:16px 0 4px;font-size:17px}.pg p,.pg li{line-height:1.9;color:var(--ink2)}
+.pg ul{padding-inline-start:20px;margin:6px 0}
+.pg .back{display:inline-block;margin-top:12px;font-weight:700;color:var(--ink)}
+.pg mark{background:#fff1b8;color:#14232a;padding:0 4px;border-radius:4px}
+.tver{margin-top:14px;font-size:13px;color:var(--mute);border-top:1px dashed var(--line);padding-top:8px}
+.dock{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr);gap:8px}.dock button{padding-inline:8px;min-width:0}
+
+/* v4 modern */
+:root{--ink:#0f1c24;--ink2:#41525b;--mute:#566872;--line:#e6eaee;--bg:#f3f6f8;--card:#fff;--acc:#0b7d68;--acc2:#12b08f;--g700:#0b6b59;--g600:#0b7d68;--g50:#ecf8f4;--g100:#d6f0e8;--r1:14px;--r2:20px;--r3:28px;--sh1:0 1px 2px rgba(15,28,36,.05),0 4px 14px rgba(15,28,36,.06);--sh2:0 2px 4px rgba(15,28,36,.04),0 18px 44px -12px rgba(15,28,36,.22)}
+body{background:var(--bg);background-image:radial-gradient(60% 40% at 100% 0,rgba(18,176,143,.10),transparent 70%),radial-gradient(50% 30% at 0 20%,rgba(37,79,143,.06),transparent 70%);background-repeat:no-repeat;letter-spacing:0}
+.hero{background:linear-gradient(135deg,#06382f 0%,#0b6b59 55%,#12a487 120%);padding:34px 22px 74px;border-radius:0 0 36px 36px}
+.hero:before{width:260px;height:260px;inset:auto auto -90px -70px;background:radial-gradient(circle,rgba(255,255,255,.18),rgba(255,255,255,0) 70%)}
+.hero:after{content:"";position:absolute;inset:-60px -40px auto auto;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(125,235,200,.28),rgba(125,235,200,0) 70%)}
+.hero .logo{width:56px;height:56px;border-radius:18px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(6px)}
+h1{font-size:34px;line-height:1.25;font-weight:800;letter-spacing:-.2px}
+.hero p{font-size:16.5px;color:#d9f1ea}
+.hero .chips span{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);padding:4px 12px;font-size:13.5px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:18px 0 0;padding:0;list-style:none}
+.steps li{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:10px 8px;text-align:center;font-size:13.5px;line-height:1.5;color:#eafaf5;display:flex;flex-direction:column;align-items:center;gap:4px}
+.steps b{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#fff;color:#0b6b59;font-size:14px}
+.panel{border-radius:var(--r3);box-shadow:var(--sh2);border:1px solid rgba(15,28,36,.05);padding:20px 16px 18px;margin-top:-44px}
+h2{font-size:19px;font-weight:800}
+h2 .n{background:linear-gradient(135deg,var(--acc),var(--acc2));width:30px;height:30px;box-shadow:0 4px 10px rgba(11,125,104,.35)}
+.seg{background:#eaf0f3;border-radius:999px;padding:5px}
+.seg button{border-radius:999px;min-height:52px;color:var(--ink2)}
+.seg button.on{color:var(--g700);box-shadow:0 4px 12px rgba(15,28,36,.14)}
+button{border:1.5px solid var(--line);border-radius:999px;background:#fff;box-shadow:0 1px 2px rgba(15,28,36,.04)}
+button.primary{background:linear-gradient(135deg,var(--acc) 0%,#0d9a80 100%);border:0;box-shadow:0 10px 24px -6px rgba(11,125,104,.55);min-height:60px;font-size:18.5px}
+.mic{background:linear-gradient(135deg,#fff,var(--g50));border:2px solid #9fdccb;box-shadow:0 8px 20px -8px rgba(11,125,104,.5)}
+.tips{background:var(--g50);border:1px solid #cdeee3;border-radius:var(--r2)}
+textarea{border:1.5px solid var(--line);background:#fbfcfd;border-radius:var(--r2);box-shadow:inset 0 1px 2px rgba(15,28,36,.04)}
+textarea:focus{border-color:var(--acc2);box-shadow:0 0 0 4px rgba(18,176,143,.16)}
+.note{background:#eef3f6;border-radius:var(--r2)}
+.sect>h2{font-size:20px}
+.dock{background:rgba(255,255,255,.88);backdrop-filter:saturate(1.4) blur(14px);border-top:1px solid rgba(15,28,36,.08);box-shadow:0 -10px 30px -12px rgba(15,28,36,.22);border-radius:22px 22px 0 0}
+.doc{background:#fff;border-radius:var(--r2);box-shadow:var(--sh2);border:1px solid rgba(15,28,36,.05);border-top:5px solid var(--acc2)}
+.pg{border-radius:var(--r3);box-shadow:var(--sh1);border:1px solid rgba(15,28,36,.05)}
+.lawbar{background:#fff7e6;border-bottom:1px solid #f0d28a;font-size:13.5px}
+footer{color:var(--mute)}
+.dock{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1fr)}.dock button{font-size:15px;white-space:nowrap;padding-inline:6px;gap:6px}
+@media print{
+ body{background:#fff}.lawbar,.hero,.panel,#checks,.sum,#sumsect,.hint,.dock,footer,nav.fnav,.sect>h2,#refsect,.pg,.noprint{display:none!important}
+ #out,#out>.sect{display:block!important;border:0;box-shadow:none;padding:0;margin:0}
+ #out>.sect:first-child,#out>.sect:last-child{display:none!important}
+ .disc{break-inside:avoid}
+ #out[hidden]{display:none!important}
+ .printdisc{display:block!important}
+ .doc,.doc .in{box-shadow:none!important;border:0!important;font-size:13pt;color:#000}
+ mark{background:none;border-bottom:1px dotted #000;color:#000}
+}
+.printdisc{display:none;font-size:11pt;border:1px solid #000;padding:6px 8px;margin-bottom:10px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<noscript><p style="padding:20px;font:18px/1.8 system-ui,Tahoma,Arial,sans-serif;background:#fff4e0;margin:0">هذه الصفحة تحتاج تفعيل JavaScript في المتصفح لتعمل.</p></noscript>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 19v3" /> <path d="M19 10v2a7 7 0 0 1-14 0v-2" /> <rect x="9" y="2" width="6" height="13" rx="3" /></symbol><symbol id="i-mic-off" viewBox="0 0 24 24"><path d="M12 19v3" /> <path d="M15 9.34V5a3 3 0 0 0-5.68-1.33" /> <path d="M16.95 16.95A7 7 0 0 1 5 12v-2" /> <path d="M18.89 13.23A7 7 0 0 0 19 12v-2" /> <path d="m2 2 20 20" /> <path d="M9 9v3a3 3 0 0 0 5.12 2.12" /></symbol><symbol id="i-file-text" viewBox="0 0 24 24"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" /> <path d="M14 2v5a1 1 0 0 0 1 1h5" /> <path d="M10 9H8" /> <path d="M16 13H8" /> <path d="M16 17H8" /></symbol><symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /> <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></symbol><symbol id="i-download" viewBox="0 0 24 24"><path d="M12 15V3" /> <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /> <path d="m7 10 5 5 5-5" /></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="M12 16v-4" /> <path d="M12 8h.01" /></symbol><symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v18" /> <path d="m19 8 3 8a5 5 0 0 1-6 0zV7" /> <path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1" /> <path d="m5 8 3 8a5 5 0 0 1-6 0zV7" /> <path d="M7 21h10" /></symbol><symbol id="i-eraser" viewBox="0 0 24 24"><path d="M21 21H8a2 2 0 0 1-1.42-.587l-3.994-3.999a2 2 0 0 1 0-2.828l10-10a2 2 0 0 1 2.829 0l5.999 6a2 2 0 0 1 0 2.828L12.834 21" /> <path d="m5.082 11.09 8.828 8.828" /></symbol><symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" /> <path d="M20 2v4" /> <path d="M22 4h-4" /> <circle cx="4" cy="20" r="2" /></symbol><symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></symbol><symbol id="i-key-round" viewBox="0 0 24 24"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z" /> <circle cx="16.5" cy="7.5" r=".5" fill="currentColor" /></symbol><symbol id="i-handshake" viewBox="0 0 24 24"><path d="m11 17 2 2a1 1 0 1 0 3-3" /> <path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" /> <path d="m21 3 1 11h-2" /> <path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" /> <path d="M3 4h8" /></symbol><symbol id="i-square-pen" viewBox="0 0 24 24"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" /> <path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z" /></symbol><symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" /></symbol><symbol id="i-trash" viewBox="0 0 24 24"><path d="M10 11v6" /> <path d="M14 11v6" /> <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" /> <path d="M3 6h18" /> <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></symbol><symbol id="i-wand-sparkles" viewBox="0 0 24 24"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72" /> <path d="m14 7 3 3" /> <path d="M5 6v4" /> <path d="M19 14v4" /> <path d="M10 2v2" /> <path d="M7 8H3" /> <path d="M21 16h-4" /> <path d="M11 3H9" /></symbol><symbol id="i-circle-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="m16 9-5.5 5.5L8 12" /></symbol><symbol id="i-lightbulb" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" /> <path d="M9 18h6" /> <path d="M10 22h4" /></symbol><symbol id="i-file-pen" viewBox="0 0 24 24"><path d="M12.659 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v9.34" /> <path d="M14 2v5a1 1 0 0 0 1 1h5" /> <path d="M10.378 12.622a1 1 0 0 1 3 3.003L8.36 20.637a2 2 0 0 1-.854.506l-2.867.837a.5.5 0 0 1-.62-.62l.836-2.869a2 2 0 0 1 .506-.853z" /></symbol><symbol id="i-circle-x" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="m15 9-6 6" /> <path d="m9 9 6 6" /></symbol><symbol id="i-stamp" viewBox="0 0 24 24"><path d="M14 13V8.5C14 7 15 7 15 5a3 3 0 0 0-6 0c0 2 1 2 1 3.5V13" /> <path d="M20 15.5a2.5 2.5 0 0 0-2.5-2.5h-11A2.5 2.5 0 0 0 4 15.5V17a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1z" /> <path d="M5 22h14" /></symbol><symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol></defs></svg>
+<aside class="lawbar" aria-label="تنبيه قانوني">مسودات استرشادية فقط، ليست استشارة قانونية. اعرض أي عقد على محامٍ قبل التوقيع. <a href="#/disclaimer">التفاصيل</a></aside>
+<main>
+<div id="home"><header class="hero"><div class="logo"><svg class="i lg" aria-hidden="true"><use href="#i-file-pen"/></svg></div><h1>مسودة عقد من كلامك</h1><p>احكِ الاتفاق بالعامية، تطلع لك مسودة عقد مرتبة، ومراجعة على القانون المدني المصري. مسودة استرشادية تحتاج مراجعة محامٍ، وليست استشارة قانونية.</p><div class="chips"><span><svg class="i sm" aria-hidden="true"><use href="#i-mic"/></svg>تكلم</span><span><svg class="i sm" aria-hidden="true"><use href="#i-scale"/></svg>راجع على القانون</span></div><ol class="steps"><li><b>١</b>اختر نوع العقد</li><li><b>٢</b>احكِ الاتفاق</li><li><b>٣</b>راجع واطبع</li></ol></header>
+<section class="panel">
+<h2><span class="n">1</span>نوع العقد</h2>
+<div class="seg" role="group" aria-label="نوع العقد"><button id="k-sale" class="on" type="button"><svg class="i" aria-hidden="true"><use href="#i-handshake"/></svg>بيع</button><button id="k-lease" type="button"><svg class="i" aria-hidden="true"><use href="#i-key-round"/></svg>إيجار</button></div>
+<h2><span class="n">2</span>احكِ الاتفاق</h2>
+<details class="tips"><summary><svg class="i sm" aria-hidden="true"><use href="#i-lightbulb"/></svg>إزاي أتكلم؟<span class="chev"><svg class="i sm" aria-hidden="true"><use href="#i-chevron-down"/></svg></span></summary><ul><li>اذكر البائع والمشتري (أو المؤجر والمستأجر) بالاسم، ثم الرقم القومي لكل واحد.</li><li>جملة قصيرة لكل معلومة: الوصف، الثمن أو الأجرة، السداد، المدة، التسليم.</li><li>الأرقام بالأرقام أو بالكلام، مع كلمة «جنيه».</li><li>التاريخ مثل: من 1/1/2027، أو: من أول يناير 2027.</li></ul></details>
+<div class="field"><textarea id="txt" dir="rtl" lang="ar" placeholder="مثال: البائع أحمد محمد... رقمه القومي... المشتري... باع الشقة رقم... الثمن ... جنيه..." aria-label="نص الاتفاق"></textarea></div>
+<div id="status" role="status"></div>
+<div class="bar2"><div class="micwrap"><button id="mic" class="mic" type="button" aria-label="ابدأ التسجيل"><svg class="i" aria-hidden="true"><use href="#i-mic"/></svg></button><div class="lbl" id="miclbl">تسجيل</div></div><button id="go" class="primary" type="button"><svg class="i" aria-hidden="true"><use href="#i-wand-sparkles"/></svg>اكتب العقد</button></div>
+<div class="row2"><button id="ex" type="button"><svg class="i sm" aria-hidden="true"><use href="#i-sparkles"/></svg>مثال جاهز</button><button id="clr" type="button"><svg class="i sm" aria-hidden="true"><use href="#i-eraser"/></svg>مسح</button></div>
+<div class="note"><svg class="i sm" aria-hidden="true"><use href="#i-shield-check"/></svg><div><b>الخصوصية</b>تتم معالجة ما تكتبه داخل هذه الصفحة على جهازك، ولا نرسله ولا نحفظه. زر الميكروفون يستخدم خدمة التعرف على الكلام في Chrome، وChrome يرسل الصوت إلى خوادم Google ليحوّله إلى نص. الأرقام القومية والأسماء بيانات حساسة، فإن لم ترد إرسال صوتك فاكتب بيدك أو استخدم ميكروفون لوحة المفاتيح. مزود الاستضافة قد يسجل زيارة الصفحة (مثل عنوان IP) كأي موقع.</div></div>
+</section>
+<div id="out" hidden>
+<section class="sect"><h2><span class="n">3</span>مراجعة على القانون المدني</h2>
+<div class="sum" id="sum" role="status"></div>
+<div id="checks"></div></section>
+<section class="sect"><h2><span class="n">4</span>المسودة</h2>
+<div class="disc" role="note"><svg class="i sm" aria-hidden="true"><use href="#i-alert"/></svg><div><b>تنبيه مهم</b>هذه مسودة آلية للاسترشاد فقط. ليست استشارة قانونية ولا عقدًا نهائيًا، وقد تخطئ في فهم الكلام أو في اختيار البنود. قبل التوقيع اعرضها على محامٍ، وراجع الأسماء والأرقام والمبالغ من المستندات الأصلية. ولا تنتقل ملكية العقار إلا بالتسجيل في الشهر العقاري.</div></div>
+<p class="hint"><svg class="i sm" aria-hidden="true"><use href="#i-info"/></svg><span>الخانات الصفراء بين أقواس مربعة ناقصة. أكمل كلامك واضغط «اكتب العقد» مرة ثانية، أو انسخ النص وعدّله.</span></p>
+<div class="printdisc">مسودة استرشادية آلية وليست استشارة قانونية. تُراجَع من محامٍ قبل التوقيع.</div><div class="doc" id="doc"></div></section>
+<section class="sect"><h2><svg class="i" aria-hidden="true"><use href="#i-scale"/></svg>المواد المرجعية</h2>
+<div id="refs"></div></section>
+</div>
+<footer>المصدر: القانون المدني رقم 131 لسنة 1948، بنص المواد المنشور على موقع مصلحة الضرائب المصرية (eta.gov.eg)، ونص المادة 934 كما ورد في مصدر قانوني منشور. قد تكون بعض المواد عُدّلت بعد هذا النص، فراجع آخر صياغة قبل التوقيع. المادة التي تبدأ بكلمة «مقتطف» مأخوذة جزئيًا. نطاق العقود: العقود الجديدة الخاضعة للقانون المدني (القانون 4 لسنة 1996). الإيجار القديم له قوانين خاصة لا تغطيها المسودة. هذه أداة مساعدة تجريبية: المسودة التي تنتجها استرشادية، وتحتاج مراجعة محامٍ قبل التوقيع أو أي استخدام رسمي. لا تغني عن الاستشارة القانونية.</footer>
+
+</div>
+<section id="pg-about" class="pg" hidden><h1>عن الأداة</h1><p>«مسودة عقد من كلامك» أداة مجانية تجريبية. تحكي الاتفاق بالعامية المصرية، فتطلع لك مسودة عقد بيع أو إيجار مرتبة، وتراجعها على نصوص القانون المدني المصري.</p><h2>من نحن</h2><p>الأداة من تطوير وتشغيل سامح طه، بشكل فردي. يعمل سامح في صياغة العقود وكتابتها، ويعمل في مكتب محاماة، وأُعدّت الأداة بعد الرجوع إلى مكتب المحاماة الذي يعمل فيه.</p><h2>ما هي وما ليست</h2><ul><li>أداة مساعدة تكتب مسودة وتنبّه للبنود الناقصة.</li><li>ليست مكتب محاماة ولا جهة حكومية، ولا تقدم استشارة قانونية، ولا تعوّض عن المحامي.</li><li>لا تسجّل العقد في الشهر العقاري ولا توثّقه.</li><li>المسودة للاسترشاد فقط، وراجعها مع محامٍ قبل التوقيع.</li></ul><h2>الدعم</h2><p>لأي مشكلة في استخدام الأداة (خطأ في الموقع أو سؤال عن طريقة الاستخدام): <a href="mailto:samehtaha747@gmail.com">samehtaha747@gmail.com</a>. الدعم تقني فقط ولا نرد على أي استفسار قانوني.</p><a class="back" href="#/">العودة للأداة</a></section>
+<section id="pg-terms" class="pg" hidden><h1>شروط الاستخدام</h1><p>باستخدامك الأداة توافق على التالي. آخر تحديث: ٢٦ نوفمبر ٢٠٢٦.</p><ul><li>الأداة تنتج مسودات استرشادية آلية. قد تخطئ في فهم الكلام أو في اختيار البنود أو في الأسماء والأرقام والمبالغ.</li><li>أنت المسؤول عن مراجعة كل بيان في المسودة من مستنداتك الأصلية قبل أي استخدام.</li><li>لا تعتمد على المسودة وحدها في توقيع أو دفع أو تسجيل. اعرضها على محامٍ مرخّص.</li><li>تُقدَّم الأداة «كما هي» دون أي ضمان بالدقة أو الاكتمال أو الملاءمة لحالتك. وبالقدر الذي يسمح به القانون، لا يتحمل مشغّل الأداة مسؤولية عن أي خسارة ناتجة عن استخدامها. تحقق من مدى سريان هذا البند مع محامٍ.</li><li>نصوص المواد المعروضة مأخوذة من القانون المدني رقم 131 لسنة 1948 كما نشرته مصلحة الضرائب المصرية، وقد تكون عُدّلت لاحقًا.</li><li>لا تدخل بيانات حقيقية حساسة لا حاجة لها. استخدم أسماء وأرقامًا تجريبية عند التجربة.</li></ul><p>هذه الصياغة نفسها تحتاج مراجعة محامٍ قبل الإطلاق الرسمي.</p><a class="back" href="#/">العودة للأداة</a></section>
+<section id="pg-privacy" class="pg" hidden><h1>الخصوصية</h1><p>آخر تحديث: ٢٦ نوفمبر ٢٠٢٦.</p><h2>ما تكتبه</h2><p>النص الذي تكتبه أو تتكلم به يُعالَج داخل متصفحك على جهازك لتكوين المسودة. لا يرسله موقعنا إلى أي خادم ولا يحفظه، ويختفي عند إغلاق الصفحة أو تحديثها.</p><h2>الميكروفون</h2><p>زر الميكروفون يطلب إذنك أولًا، ويستخدم خدمة التعرف على الكلام في متصفح Chrome. Chrome يرسل الصوت إلى خوادم Google ليحوّله إلى نص، وهذا يخضع لسياسة خصوصية Google وليس لنا سيطرة عليه. لا نحصل على تسجيل الصوت. إن أردت تجنّب ذلك فاكتب بيدك ولا تضغط زر الميكروفون.</p><h2>ما قد تسجله الاستضافة</h2><p>الموقع مُستضاف لدى مزوّد استضافة خارجي، وقد تسجّل خوادمه بيانات تقنية مثل عنوان IP ونوع المتصفح عند فتح الصفحة. لا نضع في الصفحة أي أدوات تتبع أو إعلانات أو كوكيز.</p><h2>مراسلة الدعم</h2><p>إن راسلت بريد الدعم فالرسالة تصل إلى سامح طه وتخضع لسياسة خصوصية مزوّد البريد. نستخدمها للرد عليك فقط. لا ترسل بيانات عقد حقيقية أو أرقامًا قومية.</p><h2>ملاحظة</h2><p>إن أضفنا مستقبلًا حسابات أو حفظًا للعقود، سنحدّث هذه الصفحة قبل ذلك. هذه الصياغة تحتاج مراجعة محامٍ، خصوصًا لو استخدم الموقع أشخاص خارج مصر.</p><a class="back" href="#/">العودة للأداة</a></section>
+<section id="pg-disclaimer" class="pg" hidden><h1>إخلاء مسؤولية قانوني</h1><p>المسودات التي تنتجها هذه الأداة استرشادية فقط، وليست استشارة قانونية ولا عقدًا نهائيًا.</p><ul><li>قد تحتوي المسودة على أخطاء أو نقص أو بنود لا تناسب حالتك.</li><li>لا تنتقل ملكية العقار إلا بالتسجيل في الشهر العقاري، ومجرد توقيع عقد عرفي لا يكفي لذلك.</li><li>الإيجار القديم (القوانين 49 لسنة 1977 و136 لسنة 1981 و164 لسنة 2025) والأراضي الزراعية لهما قواعد خاصة لا تغطيها الأداة.</li><li>لا تشمل المسودة الضرائب والرسوم، وهي تختلف بحسب الحالة.</li><li><b>اعرض أي مسودة على محامٍ مرخّص قبل التوقيع.</b></li></ul><a class="back" href="#/">العودة للأداة</a></section>
+<section id="pg-contact" class="pg" hidden><h1>تواصل معنا</h1><p>للدعم الفني على الموقع: <a href="mailto:samehtaha747@gmail.com">samehtaha747@gmail.com</a>. نرد على مشاكل الاستخدام فقط، ولا نقدم استشارات قانونية. لا ترسل في رسالتك رقمًا قوميًا أو بيانات عقد حقيقية. للاستشارة القانونية توجّه إلى محامٍ.</p><a class="back" href="#/">العودة للأداة</a></section>
+</main>
+<nav class="fnav" style="margin:0 14px 90px" aria-label="روابط الموقع"><a href="#/about">عن الأداة</a><a href="#/terms">الشروط</a><a href="#/privacy">الخصوصية</a><a href="#/disclaimer">إخلاء المسؤولية</a><a href="#/contact">تواصل</a></nav>
+<div class="dock" id="dock" hidden><button id="copy" class="primary" type="button"><svg class="i" aria-hidden="true"><use href="#i-copy"/></svg><span id="copylbl">انسخ العقد</span></button><button id="word" type="button"><svg class="i" aria-hidden="true"><use href="#i-download"/></svg>Word</button><button id="prt" type="button"><svg class="i" aria-hidden="true"><use href="#i-file-text"/></svg>طباعة</button></div>
+<script>
+__LOGIC__
+const $ = (id) => document.getElementById(id);
+const svg = (n, c) => '<svg class="i ' + (c || '') + '" aria-hidden="true"><use href="#i-' + n + '"/></svg>';
+const ICON_ALERT = svg('alert', 'sm'), ICON_INFO = svg('info', 'sm'), ICON_OK = svg('check', 'sm');
+const esc = (s) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const TEMPLATE_VER = 'نسخة القالب 1.0 · ٢٦ نوفمبر ٢٠٢٦';
+let kind = 'sale', lastPlain = '', recording = false, rec = null, base = '';
+function setKind(k) { kind = k; $('k-sale').className = k === 'sale' ? 'on' : ''; $('k-lease').className = k === 'lease' ? 'on' : ''; $('txt').value = ''; $('out').hidden = true; $('dock').hidden = true; }
+$('k-sale').onclick = () => setKind('sale');
+$('k-lease').onclick = () => setKind('lease');
+$('ex').onclick = () => { $('txt').value = SAMPLES[kind]; render(); };
+$('clr').onclick = () => { $('txt').value = ''; $('out').hidden = true; $('dock').hidden = true; };
+$('go').onclick = render;
+const ph = (s) => s.split(/(\u0001[^\u0002]*\u0002)/).filter(Boolean).map((x) => x.startsWith('\u0001') ? '<mark>[' + esc(x.slice(1, -1)) + ']</mark>' : esc(x)).join('');
+function docHtml(lines) {
+  let h = '<div class="in">', sigs = [];
+  for (const s of lines) {
+    if (s.startsWith('# ')) { h += '<div class="t">' + esc(s.slice(2)) + '</div><div class="tl"></div>'; continue; }
+    if (/: \.{6,}$/.test(s)) { sigs.push(s.replace(/: \.{6,}$/, '').replace(/^الطرف (?:الأول|الثاني) /, '')); continue; }
+    const cm = /^(البند [^(:]+)\(([^)]*)\):\s*(.*)$/.exec(s);
+    if (cm) { h += '<div class="cl"><div class="ch">' + esc(cm[1].trim()) + '<em>' + esc(cm[2]) + '</em></div><p>' + ph(cm[3]) + '</p></div>'; continue; }
+    h += '<p>' + ph(s) + '</p>';
+  }
+  if (sigs.length) h += '<div class="sigs">' + sigs.map((x) => '<div class="sg">' + esc(x.replace(/[()]/g, '')) + '<small>التوقيع</small></div>').join('') + '</div>';
+  return h + '<div class="tver">' + TEMPLATE_VER + ' · مسودة استرشادية تحتاج مراجعة محامٍ</div></div>';
+}
+function render() {
+  const text = $('txt').value;
+  if (!text.trim()) { status('اكتب أو سجّل الاتفاق أولًا، ثم اضغط «اكتب العقد».', true); $('txt').focus(); return; }
+  status('');
+  const p = parse(kind, text), checks = runChecks(kind, p), lines = build(kind, p);
+  const real = checks.filter((c) => !c.info), missing = real.filter((c) => !c.ok).length, okc = real.length - missing;
+  $('sum').className = 'sum' + (missing ? ' bad' : '');
+  const pct = Math.round(okc / real.length * 100);
+  $('sum').innerHTML = '<div class="ring" style="--p:' + pct + '"><b>' + okc + '/' + real.length + '<small>موجود</small></b></div><div><div class="tt">' + (missing ? missing + (missing === 1 ? ' بند يحتاج انتباه' : ' بنود تحتاج انتباه') : 'كل البنود الأساسية موجودة') + '</div><div class="sub">الفحص يتأكد من وجود الأركان في كلامك فقط. لا يتأكد من صحة الأسماء أو الأرقام أو من الملكية.</div></div>';
+  const card = (c, cls, ic) => '<div class="chk ' + cls + '"><div class="ic" aria-hidden="true">' + ic + '</div><div><b>' + esc(c.name) + (c.art ? ' <span class="art">' + c.art + '</span>' : '') + '</b><div class="d">' + esc(c.detail) + '</div></div></div>';
+  const need = checks.filter((c) => !c.info && !c.ok), infos = checks.filter((c) => c.info), oks = checks.filter((c) => !c.info && c.ok);
+  $('checks').innerHTML = (need.length ? '<h3>' + ICON_ALERT + 'يحتاج انتباه</h3>' + need.map((c) => card(c, 'x', ICON_ALERT)).join('') : '') + (infos.length ? '<h3>' + ICON_INFO + 'معلومات قانونية</h3>' + infos.map((c) => card(c, 'i', ICON_INFO)).join('') : '') + (oks.length ? '<h3>' + ICON_OK + 'موجود في كلامك</h3><div class="oks">' + oks.map((c) => '<span class="ok">' + ICON_OK + esc(c.name) + (c.art ? ' <span class="art">' + c.art + '</span>' : '') + '</span>').join('') + '</div>' : '');
+  $('doc').innerHTML = docHtml(lines);
+  lastPlain = lines.map((l) => l.replace(/^# /, '').replace(/\u0001([^\u0002]*)\u0002/g, '[$1]')).join('\n\n') + '\n\n' + TEMPLATE_VER + ' · مسودة استرشادية تحتاج مراجعة محامٍ';
+  const show = kind === 'sale' ? ['م 418', 'م 419', 'م 428', 'م 430', 'م 431', 'م 435', 'م 439', 'م 447', 'م 458', 'م 462', 'م 223', 'م 224', 'م 934'] : ['م 558', 'م 559', 'م 562', 'م 564', 'م 567', 'م 579', 'م 583', 'م 590', 'م 591', 'م 593'];
+  $('refs').innerHTML = REFS.filter((r) => show.includes(r.n)).map((r) => '<div class="ref"><b>' + r.n + '</b><span>' + esc(r.t) + '</span></div>').join('');
+  $('out').hidden = false; $('dock').hidden = false;
+  $('out').scrollIntoView({ behavior: window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+}
+$('copy').onclick = async () => {
+  try { await navigator.clipboard.writeText(lastPlain); $('copylbl').textContent = 'تم النسخ'; }
+  catch (e) { const t = $('txt'); const ta = document.createElement('textarea'); ta.value = lastPlain; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); $('copylbl').textContent = 'تم النسخ'; } catch (e2) { $('copylbl').textContent = 'تعذر النسخ'; } ta.remove(); }
+  setTimeout(() => { $('copylbl').textContent = 'انسخ العقد'; }, 2000);
+};
+/*DOCX_START*/
+function makeDocx(paras) {
+  const enc = new TextEncoder();
+  const X = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, '');
+  const body = paras.map((t, i) => {
+    const head = i === 0, last = i === paras.length - 1 && paras.length > 2;
+    const sz = head ? 32 : last ? 20 : 26;
+    const rpr = '<w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>' + (head ? '<w:b/><w:bCs/>' : '') + '<w:sz w:val="' + sz + '"/><w:szCs w:val="' + sz + '"/><w:rtl/><w:lang w:bidi="ar-EG"/></w:rPr>';
+    return '<w:p><w:pPr><w:bidi/><w:spacing w:after="160" w:line="360" w:lineRule="auto"/><w:jc w:val="' + (head ? 'center' : 'both') + '"/></w:pPr><w:r>' + rpr + '<w:t xml:space="preserve">' + X(t) + '</w:t></w:r></w:p>';
+  }).join('');
+  const files = [
+    ['[Content_Types].xml', '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>'],
+    ['_rels/.rels', '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>'],
+    ['word/document.xml', '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body>' + body + '<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1134" w:right="1134" w:bottom="1134" w:left="1134" w:header="708" w:footer="708" w:gutter="0"/><w:bidi/></w:sectPr></w:body></w:document>'],
+  ].map(([n, c]) => [enc.encode(n), enc.encode(c)]);
+  const tbl = new Uint32Array(256);
+  for (let n = 0; n < 256; n++) { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; tbl[n] = c >>> 0; }
+  const crc = (b) => { let c = 0xFFFFFFFF; for (let i = 0; i < b.length; i++) c = tbl[(c ^ b[i]) & 255] ^ (c >>> 8); return (c ^ 0xFFFFFFFF) >>> 0; };
+  const parts = [], cen = []; let off = 0;
+  const u16 = (v) => [v & 255, (v >> 8) & 255], u32 = (v) => [v & 255, (v >> 8) & 255, (v >> 16) & 255, (v >>> 24) & 255];
+  for (const [nm, data] of files) {
+    const c = crc(data);
+    const lh = new Uint8Array([0x50, 0x4b, 3, 4, ...u16(20), ...u16(0x0800), ...u16(0), ...u16(0), ...u16(0x21), ...u32(c), ...u32(data.length), ...u32(data.length), ...u16(nm.length), ...u16(0)]);
+    parts.push(lh, nm, data);
+    cen.push(new Uint8Array([0x50, 0x4b, 1, 2, ...u16(20), ...u16(20), ...u16(0x0800), ...u16(0), ...u16(0), ...u16(0x21), ...u32(c), ...u32(data.length), ...u32(data.length), ...u16(nm.length), ...u16(0), ...u16(0), ...u16(0), ...u16(0), ...u32(0), ...u32(off)]), nm);
+    off += lh.length + nm.length + data.length;
+  }
+  const cenLen = cen.reduce((s, x) => s + x.length, 0);
+  const end = new Uint8Array([0x50, 0x4b, 5, 6, 0, 0, 0, 0, ...u16(files.length), ...u16(files.length), ...u32(cenLen), ...u32(off), 0, 0]);
+  const all = [...parts, ...cen, end], out = new Uint8Array(all.reduce((s, x) => s + x.length, 0)); let p = 0;
+  for (const x of all) { out.set(x, p); p += x.length; }
+  return out;
+}
+/*DOCX_END*/
+$('word').onclick = () => {
+  const paras = lastPlain.split('\n\n').map((l) => l.replace(/\n/g, ' ')).filter(Boolean);
+  const bytes = makeDocx(paras);
+  const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([bytes], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' }));
+  a.download = (kind === 'sale' ? 'sale-contract' : 'lease-contract') + '.docx'; document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 60000);
+};
+$('prt').onclick = () => window.print();
+function route() {
+  const h = (location.hash || '').replace(/^#\/?/, '');
+  const ok = ['about', 'terms', 'privacy', 'disclaimer', 'contact'].includes(h);
+  $('home').hidden = ok;
+  for (const k of ['about', 'terms', 'privacy', 'disclaimer', 'contact']) $('pg-' + k).hidden = h !== k;
+  $('dock').style.display = ok ? 'none' : '';
+  const t = { about: 'عن الأداة', terms: 'شروط الاستخدام', privacy: 'الخصوصية', disclaimer: 'إخلاء المسؤولية', contact: 'تواصل' };
+  document.title = ok ? t[h] + ' · مسودة عقد من كلامك' : TITLE0;
+  window.scrollTo(0, 0);
+}
+const TITLE0 = document.title;
+addEventListener('hashchange', route); route();
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+function status(m, err) { $('status').className = err ? 'err' : ''; $('status').textContent = m || ''; }
+function stopRec() { recording = false; if (rec) { try { rec.stop(); } catch (e) {} } $('mic').className = 'mic'; $('mic').innerHTML = svg('mic'); $('miclbl').textContent = 'تسجيل'; }
+$('mic').onclick = () => {
+  if (!SR) { status('هذا المتصفح لا يدعم التعرف على الكلام. افتح الصفحة في Chrome، أو اكتب بيدك، أو استخدم ميكروفون لوحة المفاتيح.', true); return; }
+  if (recording) { stopRec(); status('توقف التسجيل.'); return; }
+  base = $('txt').value; recording = true; $('mic').className = 'mic rec'; $('mic').innerHTML = svg('mic-off'); $('miclbl').textContent = 'إيقاف'; status('جاري الاستماع... تكلم.');
+  const start = () => {
+    rec = new SR(); rec.lang = 'ar-EG'; rec.interimResults = true; rec.continuous = false;
+    rec.onresult = (e) => {
+      let fin = '', interim = '';
+      for (let i = e.resultIndex; i < e.results.length; i++) { const t = e.results[i][0].transcript; if (e.results[i].isFinal) fin += t; else interim += t; }
+      if (fin) { base = (base ? base.replace(/\s*$/, ' ') : '') + fin.trim(); }
+      $('txt').value = base + (interim ? ' ' + interim : '');
+    };
+    rec.onerror = (e) => {
+      if (e.error === 'no-speech') return;
+      if (e.error === 'not-allowed' || e.error === 'service-not-allowed') { stopRec(); status('الميكروفون غير مسموح. اسمح للصفحة باستخدام الميكروفون من إعدادات الموقع في Chrome ثم جرّب مرة أخرى.', true); }
+      else if (e.error === 'network') { stopRec(); status('تعذر الاتصال بخدمة التعرف على الكلام. تأكد من الإنترنت أو اكتب بيدك.', true); }
+      else if (e.error === 'audio-capture') { stopRec(); status('لم يُعثر على ميكروفون في هذا الجهاز. اكتب بيدك أو وصّل ميكروفونًا.', true); }
+      else if (e.error !== 'aborted') { stopRec(); status('تعذر التسجيل الصوتي. اكتب بيدك أو جرّب مرة أخرى.', true); }
+    };
+    rec.onend = () => { if (recording) { try { start(); } catch (e) { stopRec(); } } };
+    rec.start();
+  };
+  try { start(); } catch (e) { stopRec(); status('تعذر بدء التسجيل.', true); }
+};
+</script>
+<script type="text/plain" id="fontcss">
+__FONTS__
+</script>
+<script>(function(){var s=document.createElement('style');s.textContent=document.getElementById('fontcss').textContent;document.head.appendChild(s);})();</script>
+</body>
+</html>
