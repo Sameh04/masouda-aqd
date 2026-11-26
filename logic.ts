@@ -1,3 +1,4 @@
+
 type Kind = 'sale' | 'lease';
 
 export const SAMPLES: Record<Kind, string> = {
@@ -46,11 +47,12 @@ const addNW = (v: number, ws: string) => ws.split(' ').forEach((w) => { NW[w] = 
 addNW(1, 'واحد واحده'); addNW(2, 'اتنين اثنين اثنان اتنان'); addNW(3, 'تلاته ثلاثه تلات ثلاث تلت'); addNW(4, 'اربعه اربع'); addNW(5, 'خمسه خمس');
 addNW(6, 'سته ست'); addNW(7, 'سبعه سبع'); addNW(8, 'تمانيه ثمانيه تمن ثمان'); addNW(9, 'تسعه تسع'); addNW(10, 'عشره عشر');
 addNW(11, 'احداشر حداشر'); addNW(12, 'اتناشر اثناشر'); addNW(13, 'تلتاشر ثلاثتاشر'); addNW(14, 'اربعتاشر'); addNW(15, 'خمستاشر'); addNW(16, 'ستاشر'); addNW(17, 'سبعتاشر'); addNW(18, 'تمنتاشر'); addNW(19, 'تسعتاشر');
+addNW(1, 'احد احدى'); addNW(2, 'اثنا اثني اثنتا اثنتي'); addNW(20, 'عشرون'); addNW(30, 'ثلاثون'); addNW(40, 'اربعون'); addNW(50, 'خمسون'); addNW(60, 'ستون'); addNW(70, 'سبعون'); addNW(80, 'ثمانون'); addNW(90, 'تسعون'); addNW(200, 'مائتان مئتان مائتا مئتا'); addNW(300, 'ثلاثمئه'); addNW(400, 'اربعمئه'); addNW(500, 'خمسمئه'); addNW(600, 'ستمئه'); addNW(700, 'سبعمئه'); addNW(800, 'ثمانمئه'); addNW(900, 'تسعمئه');
 addNW(20, 'عشرين'); addNW(30, 'تلاتين ثلاثين'); addNW(40, 'اربعين'); addNW(50, 'خمسين'); addNW(60, 'ستين'); addNW(70, 'سبعين'); addNW(80, 'تمانين ثمانين'); addNW(90, 'تسعين');
 addNW(300, 'تلتميت تلاتميت ثلاثميت'); addNW(400, 'ربعميت اربعميت'); addNW(500, 'خمسميت'); addNW(600, 'ستميت'); addNW(700, 'سبعميت'); addNW(800, 'تمنميت ثمانميت'); addNW(900, 'تسعميت');
 addNW(100, 'ميه مايه مائه مئه ميت مئة مائة مية'); addNW(200, 'ميتين مائتين مئتين'); addNW(300, 'تلتميه تلتمايه ثلاثمائه ثلاثميه تلاتميه'); addNW(400, 'ربعميه اربعمائه اربعميه ربعمايه'); addNW(500, 'خمسميه خمسمائه خمسمايه');
 addNW(600, 'ستميه ستمائه ستمايه'); addNW(700, 'سبعميه سبعمائه سبعمايه'); addNW(800, 'تمنميه ثمانمائه تمانميه تمنمايه'); addNW(900, 'تسعميه تسعمائه تسعمايه');
-const MULT: Record<string, number> = { الف: 1000, الاف: 1000, الفين: 2000, مليون: 1000000, ملايين: 1000000, مليونين: 2000000 };
+const MULT: Record<string, number> = { الف: 1000, الفا: 1000, الاف: 1000, الفين: 2000, الفان: 2000, مليون: 1000000, ملايين: 1000000, مليونين: 2000000, مليونان: 2000000 };
 const isNumTok = (t: string) => { const b = t.replace(/^و/, ''); return /^\d[\d,]*(?:\.\d+)?$/.test(b) || b in NW || b in MULT || b === 'نص' || b === 'نصف' || b === 'ربع'; };
 function numFrom(toks: string[]): number {
     let total = 0, cur = 0, last = 0;
@@ -58,10 +60,10 @@ function numFrom(toks: string[]): number {
         const t = toks[ti];
         const b = t.replace(/^و/, '');
         const nb = (toks[ti + 1] || '').replace(/^و/, '');
-        if ((b === 'نص' || b === 'نصف' || b === 'ربع') && !last && (nb in MULT) && nb !== 'الفين' && nb !== 'مليونين') { cur += b === 'ربع' ? 0.25 : 0.5; continue; }
+        if ((b === 'نص' || b === 'نصف' || b === 'ربع') && !last && (nb in MULT) && nb !== 'الفين' && nb !== 'الفان' && nb !== 'مليونين' && nb !== 'مليونان') { cur += b === 'ربع' ? 0.25 : 0.5; continue; }
         if (/^\d/.test(b)) cur += parseFloat(b.replace(/,/g, ''));
         else if (b in NW) cur += NW[b];
-        else if (b === 'الفين' || b === 'مليونين') { total += MULT[b]; last = MULT[b] / 2; cur = 0; }
+        else if (b === 'الفين' || b === 'الفان' || b === 'مليونين' || b === 'مليونان') { total += MULT[b]; last = MULT[b] / 2; cur = 0; }
         else if (b in MULT) { total += (cur || 1) * MULT[b]; last = MULT[b]; cur = 0; }
         else if ((b === 'نص' || b === 'نصف') && last) { total += last / 2; last = 0; }
         else if (b === 'ربع' && last) { total += last / 4; last = 0; }
@@ -130,8 +132,8 @@ function money(s: Seg): string {
     if (hasW(/(?:^|\s)(?:حوالي|تقريبا|تقريب|حدود|يمكن|ممكن|او)(?:\s|$)/)) return '';
     const frac = hasW(/(?:^|\s)(?:نص|نصف|ربع)(?:\s|$)/);
     if (!frac && hasW(/(?:^|\s)(?:مليون|ملايين|مليونين)(?:\s|$)/) && v < 1000000) return '';
-    if (!frac && hasW(/(?:^|\s)(?:الف|الاف|الفين)(?:\s|$)/) && v < 1000) return '';
-    return v > 0 ? fmtMoney(v) : '';
+    if (!frac && hasW(/(?:^|\s)(?:الف|الفا|الاف|الفين|الفان)(?:\s|$)/) && v < 1000) return '';
+    return v > 0 && v <= 1e12 ? fmtMoney(v) : '';
 }
 
 function durOf(n: string): { years: number; months: number } {
@@ -164,10 +166,12 @@ function durText(d: { years: number; months: number }): string {
     const ms = d.months === 0 ? '' : d.months === 1 ? 'شهر واحد' : d.months === 2 ? 'شهرين' : d.months <= 10 ? MW[d.months] + ' أشهر' : d.months + ' شهرًا';
     return [ys, ms].filter(Boolean).join(' و');
 }
+const realDate = (d: number, mo: number, y: number) => { const t = new Date(Date.UTC(y, mo - 1, d)); return mo >= 1 && mo <= 12 && d >= 1 && t.getUTCFullYear() === y && t.getUTCMonth() === mo - 1 && t.getUTCDate() === d; };
+const hasBadDate = (raw: string) => { const n = D(norm(raw)); const re = /(?<!\d)(\d{1,2})\s*[\/\-.]\s*(\d{1,2})\s*[\/\-.]\s*(\d{4})(?!\d)/g; let m; while ((m = re.exec(n))) if (!realDate(Number(m[1]), Number(m[2]), Number(m[3]))) return true; return false; };
 function dateOf(raw: string): string {
     const n = D(norm(raw));
     let m = /(?<!\d)(\d{1,2})\s*[\/\-.]\s*(\d{1,2})\s*[\/\-.]\s*(\d{4})(?!\d)/.exec(n);
-    if (m) return Number(m[1]) + '/' + Number(m[2]) + '/' + m[3];
+    if (m) return realDate(Number(m[1]), Number(m[2]), Number(m[3])) ? Number(m[1]) + '/' + Number(m[2]) + '/' + m[3] : '';
     m = /(?<!\d)(\d{1,2}|اول)?\s*(?:من\s+)?(يناير|فبراير|مارس|ابريل|مايو|يونيو|يوليو|اغسطس|سبتمبر|اكتوبر|نوفمبر|ديسمبر)\s*(\d{4})?/.exec(n);
     if (m && (m[1] || m[3])) return (m[1] ? (m[1] === 'اول' ? 1 : Number(m[1])) + ' ' : '') + m[2].replace('ابريل', 'أبريل').replace('اغسطس', 'أغسطس').replace('اكتوبر', 'أكتوبر') + (m[3] ? ' ' + m[3] : '');
     return '';
@@ -230,7 +234,7 @@ export function parse(kind: Kind, rawText: string) {
         p.inst = /(قسط|اقساط|تقسيط|مقدم|الباقي|مؤجل)/.test(norm(p.payment)) ? 'y' : '';
         p.fullcash = !p.inst && /(كامل|كاش|نقدا|خالص|بمجلس العقد|عند التوقيع)/.test(norm(p.payment + ' ' + text)) ? 'y' : '';
         const dels = ss.filter((x) => /^(?:التسليم|تسليم)|يستلم|استلام/.test(x.n) && !pays.includes(x)); const del = dels.sort((x, y) => y.o.length - x.o.length)[0];
-        p.delivery = del ? del.o : '';
+        p.delivery = del && !hasBadDate(del.o) ? del.o : '';
         const pr = find(/(عقد تملك|عقد سابق|مسجل|شهر عقاري|مستند|رخصه|حكم|ميراث|وراثه|اعلام وراثه|ملكيه.*(عقد|مسجل|حكم|ميراث|رخصه|مستند))/);
         p.proof = pr ? fixText(pr.o).replace(/^العقد\s+/, 'عقد ').replace(/^ملكية(?:\s+\S+)?\s+ب(?=\S)/, '') : '';
     } else {
