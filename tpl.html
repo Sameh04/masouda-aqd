@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; font-src data:; img-src data:; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2024%2024%27%3E%3Crect%20width=%2724%27%20height=%2724%27%20rx=%275%27%20fill=%27%230e5c4c%27/%3E%3Cpath%20d=%27M8%206h6l3%203v9H8z%27%20fill=%27none%27%20stroke=%27white%27%20stroke-width=%271.6%27/%3E%3C/svg%3E">
-<meta name="description" content="مسودة عقد بيع أو إيجار من كلامك بالعامية المصرية، مع مراجعة على القانون المدني. مسودة استرشادية ليست استشارة قانونية.">
+<meta name="description" content="مسودة عقد بيع أو إيجار لأي شيء (عقار أو أرض أو سيارة أو معدات) من كلامك بالعامية المصرية، مع مراجعة على القانون المدني. مسودة استرشادية ليست استشارة قانونية.">
 <title>مسودة عقد من كلامك</title>
 <style>
 #refs,footer{content-visibility:auto;contain-intrinsic-size:auto 320px}
@@ -41,6 +41,13 @@ p{margin:6px 0}
 .seg{display:grid;grid-template-columns:1fr 1fr;background:#ece8de;border-radius:var(--r2);padding:5px;gap:5px;margin-bottom:16px}
 .seg button{min-height:54px;border:0;background:transparent;border-radius:14px;font-size:18px;font-weight:700;color:var(--mute);display:flex;align-items:center;justify-content:center;gap:8px}
 .seg button.on{background:#fff;color:var(--g700);box-shadow:0 2px 8px rgba(0,0,0,.13)}
+.alab{font-size:15px;font-weight:700;color:var(--mute);margin:0 2px 8px}
+.seg2{display:flex;flex-wrap:wrap;gap:6px;background:transparent;padding:0;margin-bottom:16px}
+.seg2 button{min-height:42px;border:0;border-radius:999px;background:#ece8de;color:var(--ink2);font-size:15px;font-weight:700;padding:0 14px;flex:1 1 auto;min-width:0;white-space:nowrap;display:flex;align-items:center;justify-content:center}
+.seg2 button.on{background:var(--g700);color:#fff;box-shadow:0 2px 8px rgba(0,0,0,.13)}
+#assetrow button{background:#ece8de;color:var(--ink2);border:0;min-height:42px;border-radius:999px;padding:0 14px;font-size:15px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex:1 1 auto;min-width:0;white-space:nowrap}
+#assetrow button.on{background:var(--g700);color:#fff;border-color:var(--g700);box-shadow:0 2px 8px rgba(0,0,0,.13)}
+@media(max-width:430px){.seg2 button{font-size:14px;padding:0 10px}#assetrow button{font-size:14px;padding:0 10px}}
 button{font:inherit;min-height:52px;padding:0 18px;border-radius:var(--r2);border:1.5px solid #d6d0c4;background:#fff;color:var(--ink);cursor:pointer;font-weight:700;font-size:16.5px;display:inline-flex;align-items:center;justify-content:center;gap:8px}
 button:active{transform:scale(.98)}
 button:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #7fb8a8;outline-offset:2px}
@@ -183,6 +190,8 @@ footer{color:var(--mute)}
 <section class="panel">
 <h2><span class="n">1</span>نوع العقد</h2>
 <div class="seg" role="group" aria-label="نوع العقد"><button id="k-sale" class="on" type="button"><svg class="i" aria-hidden="true"><use href="#i-handshake"/></svg>بيع</button><button id="k-lease" type="button"><svg class="i" aria-hidden="true"><use href="#i-key-round"/></svg>إيجار</button></div>
+<div class="alab">نوع الشيء (يُتعرَّف عليه من كلامك)</div>
+<div class="seg2" id="assetrow" role="group" aria-label="نوع الشيء"><button type="button" data-asset="" class="on">تلقائي</button><button type="button" data-asset="home">عقار</button><button type="button" data-asset="land">أرض</button><button type="button" data-asset="shop">محل/مكتب</button><button type="button" data-asset="vehicle">سيارة</button><button type="button" data-asset="equipment">معدات</button><button type="button" data-asset="other">أخرى</button></div>
 <h2><span class="n">2</span>احكِ الاتفاق</h2>
 <details class="tips"><summary><svg class="i sm" aria-hidden="true"><use href="#i-lightbulb"/></svg>إزاي أتكلم؟<span class="chev"><svg class="i sm" aria-hidden="true"><use href="#i-chevron-down"/></svg></span></summary><ul><li>اذكر البائع والمشتري (أو المؤجر والمستأجر) بالاسم، ثم الرقم القومي لكل واحد.</li><li>جملة قصيرة لكل معلومة: الوصف، الثمن أو الأجرة، السداد، المدة، التسليم.</li><li>الأرقام بالأرقام أو بالكلام، مع كلمة «جنيه».</li><li>التاريخ مثل: من 1/1/2027، أو: من أول يناير 2027.</li></ul></details>
 <div class="field"><textarea id="txt" dir="rtl" lang="ar" placeholder="مثال: البائع أحمد محمد... رقمه القومي... المشتري... باع الشقة رقم... الثمن ... جنيه..." aria-label="نص الاتفاق"></textarea></div>
@@ -196,16 +205,16 @@ footer{color:var(--mute)}
 <div class="sum" id="sum" role="status"></div>
 <div id="checks"></div></section>
 <section class="sect"><h2><span class="n">4</span>المسودة</h2>
-<div class="disc" role="note"><svg class="i sm" aria-hidden="true"><use href="#i-alert"/></svg><div><b>تنبيه مهم</b>هذه مسودة آلية للاسترشاد فقط. ليست استشارة قانونية ولا عقدًا نهائيًا، وقد تخطئ في فهم الكلام أو في اختيار البنود. قبل التوقيع اعرضها على محامٍ، وراجع الأسماء والأرقام والمبالغ من المستندات الأصلية. ولا تنتقل ملكية العقار إلا بالتسجيل في الشهر العقاري.</div></div>
+<div class="disc" role="note"><svg class="i sm" aria-hidden="true"><use href="#i-alert"/></svg><div><b>تنبيه مهم</b>هذه مسودة آلية للاسترشاد فقط. ليست استشارة قانونية ولا عقدًا نهائيًا، وقد تخطئ في فهم الكلام أو في اختيار البنود. قبل التوقيع اعرضها على محامٍ، وراجع الأسماء والأرقام والمبالغ من المستندات الأصلية. <span id="disc-prop">ولا تنتقل ملكية العقار إلا بالتسجيل في الشهر العقاري.</span></div></div>
 <p class="hint"><svg class="i sm" aria-hidden="true"><use href="#i-info"/></svg><span>الخانات الصفراء بين أقواس مربعة ناقصة. أكمل كلامك واضغط «اكتب العقد» مرة ثانية، أو انسخ النص وعدّله.</span></p>
 <div class="printdisc">مسودة استرشادية آلية وليست استشارة قانونية. تُراجَع من محامٍ قبل التوقيع.</div><div class="doc" id="doc"></div></section>
 <section class="sect"><h2><svg class="i" aria-hidden="true"><use href="#i-scale"/></svg>المواد المرجعية</h2>
 <div id="refs"></div></section>
 </div>
-<footer>المصدر: القانون المدني رقم 131 لسنة 1948، بنص المواد المنشور على موقع مصلحة الضرائب المصرية (eta.gov.eg)، ونص المادة 934 كما ورد في مصدر قانوني منشور. قد تكون بعض المواد عُدّلت بعد هذا النص، فراجع آخر صياغة قبل التوقيع. المادة التي تبدأ بكلمة «مقتطف» مأخوذة جزئيًا. نطاق العقود: العقود الجديدة الخاضعة للقانون المدني (القانون 4 لسنة 1996). الإيجار القديم له قوانين خاصة لا تغطيها المسودة. هذه أداة مساعدة تجريبية: المسودة التي تنتجها استرشادية، وتحتاج مراجعة محامٍ قبل التوقيع أو أي استخدام رسمي. لا تغني عن الاستشارة القانونية.</footer>
+<footer>المصدر: القانون المدني رقم 131 لسنة 1948، بنص المواد المنشور على موقع مصلحة الضرائب المصرية (eta.gov.eg)، ونص المادة 934 كما ورد في مصدر قانوني منشور. قد تكون بعض المواد عُدّلت بعد هذا النص، فراجع آخر صياغة قبل التوقيع. المادة التي تبدأ بكلمة «مقتطف» مأخوذة جزئيًا. نطاق العقود: العقود الجديدة الخاضعة للقانون المدني (القانون 4 لسنة 1996). الإيجار القديم له قوانين خاصة لا تغطيها المسودة. وبنود المسودة تتغير حسب نوع الشيء: عقار أو أرض أو سيارة أو معدات. هذه أداة مساعدة تجريبية: المسودة التي تنتجها استرشادية، وتحتاج مراجعة محامٍ قبل التوقيع أو أي استخدام رسمي. لا تغني عن الاستشارة القانونية.</footer>
 
 </div>
-<section id="pg-about" class="pg" hidden><h1>عن الأداة</h1><p>«مسودة عقد من كلامك» أداة مجانية تجريبية. تحكي الاتفاق بالعامية المصرية، فتطلع لك مسودة عقد بيع أو إيجار مرتبة، وتراجعها على نصوص القانون المدني المصري.</p><h2>من نحن</h2><p>الأداة من تطوير وتشغيل سامح طه، بشكل فردي. يعمل سامح في صياغة العقود وكتابتها، ويعمل في مكتب محاماة، وأُعدّت الأداة بعد الرجوع إلى مكتب المحاماة الذي يعمل فيه.</p><h2>ما هي وما ليست</h2><ul><li>أداة مساعدة تكتب مسودة وتنبّه للبنود الناقصة.</li><li>ليست مكتب محاماة ولا جهة حكومية، ولا تقدم استشارة قانونية، ولا تعوّض عن المحامي.</li><li>لا تسجّل العقد في الشهر العقاري ولا توثّقه.</li><li>المسودة للاسترشاد فقط، وراجعها مع محامٍ قبل التوقيع.</li></ul><h2>الدعم</h2><p>لأي مشكلة في استخدام الأداة (خطأ في الموقع أو سؤال عن طريقة الاستخدام): <a href="mailto:samehtaha747@gmail.com">samehtaha747@gmail.com</a>. الدعم تقني فقط ولا نرد على أي استفسار قانوني.</p><a class="back" href="#/">العودة للأداة</a></section>
+<section id="pg-about" class="pg" hidden><h1>عن الأداة</h1><p>«مسودة عقد من كلامك» أداة مجانية تجريبية. تحكي الاتفاق بالعامية المصرية، فتطلع لك مسودة عقد بيع أو إيجار لأي شيء: عقار أو أرض أو سيارة أو معدات، مرتبة، وتراجعها على نصوص القانون المدني المصري.</p><h2>من نحن</h2><p>الأداة من تطوير وتشغيل سامح طه، بشكل فردي. يعمل سامح في صياغة العقود وكتابتها، ويعمل في مكتب محاماة، وأُعدّت الأداة بعد الرجوع إلى مكتب المحاماة الذي يعمل فيه.</p><h2>ما هي وما ليست</h2><ul><li>أداة مساعدة تكتب مسودة وتنبّه للبنود الناقصة.</li><li>ليست مكتب محاماة ولا جهة حكومية، ولا تقدم استشارة قانونية، ولا تعوّض عن المحامي.</li><li>لا تسجّل العقد في الشهر العقاري ولا توثّقه.</li><li>المسودة للاسترشاد فقط، وراجعها مع محامٍ قبل التوقيع.</li></ul><h2>الدعم</h2><p>لأي مشكلة في استخدام الأداة (خطأ في الموقع أو سؤال عن طريقة الاستخدام): <a href="mailto:samehtaha747@gmail.com">samehtaha747@gmail.com</a>. الدعم تقني فقط ولا نرد على أي استفسار قانوني.</p><a class="back" href="#/">العودة للأداة</a></section>
 <section id="pg-terms" class="pg" hidden><h1>شروط الاستخدام</h1><p>باستخدامك الأداة توافق على التالي. آخر تحديث: ٢٦ نوفمبر ٢٠٢٦.</p><ul><li>الأداة تنتج مسودات استرشادية آلية. قد تخطئ في فهم الكلام أو في اختيار البنود أو في الأسماء والأرقام والمبالغ.</li><li>أنت المسؤول عن مراجعة كل بيان في المسودة من مستنداتك الأصلية قبل أي استخدام.</li><li>لا تعتمد على المسودة وحدها في توقيع أو دفع أو تسجيل. اعرضها على محامٍ مرخّص.</li><li>تُقدَّم الأداة «كما هي» دون أي ضمان بالدقة أو الاكتمال أو الملاءمة لحالتك. وبالقدر الذي يسمح به القانون، لا يتحمل مشغّل الأداة مسؤولية عن أي خسارة ناتجة عن استخدامها. تحقق من مدى سريان هذا البند مع محامٍ.</li><li>نصوص المواد المعروضة مأخوذة من القانون المدني رقم 131 لسنة 1948 كما نشرته مصلحة الضرائب المصرية، وقد تكون عُدّلت لاحقًا.</li><li>لا تدخل بيانات حقيقية حساسة لا حاجة لها. استخدم أسماء وأرقامًا تجريبية عند التجربة.</li></ul><p>هذه الصياغة نفسها تحتاج مراجعة محامٍ قبل الإطلاق الرسمي.</p><a class="back" href="#/">العودة للأداة</a></section>
 <section id="pg-privacy" class="pg" hidden><h1>الخصوصية</h1><p>آخر تحديث: ٢٦ نوفمبر ٢٠٢٦.</p><h2>ما تكتبه</h2><p>النص الذي تكتبه أو تتكلم به يُعالَج داخل متصفحك على جهازك لتكوين المسودة. لا يرسله موقعنا إلى أي خادم ولا يحفظه، ويختفي عند إغلاق الصفحة أو تحديثها.</p><h2>الميكروفون</h2><p>زر الميكروفون يطلب إذنك أولًا، ويستخدم خدمة التعرف على الكلام في متصفح Chrome. Chrome يرسل الصوت إلى خوادم Google ليحوّله إلى نص، وهذا يخضع لسياسة خصوصية Google وليس لنا سيطرة عليه. لا نحصل على تسجيل الصوت. إن أردت تجنّب ذلك فاكتب بيدك ولا تضغط زر الميكروفون.</p><h2>ما قد تسجله الاستضافة</h2><p>الموقع مُستضاف لدى مزوّد استضافة خارجي، وقد تسجّل خوادمه بيانات تقنية مثل عنوان IP ونوع المتصفح عند فتح الصفحة. لا نضع في الصفحة أي أدوات تتبع أو إعلانات أو كوكيز.</p><h2>مراسلة الدعم</h2><p>إن راسلت بريد الدعم فالرسالة تصل إلى سامح طه وتخضع لسياسة خصوصية مزوّد البريد. نستخدمها للرد عليك فقط. لا ترسل بيانات عقد حقيقية أو أرقامًا قومية.</p><h2>ملاحظة</h2><p>إن أضفنا مستقبلًا حسابات أو حفظًا للعقود، سنحدّث هذه الصفحة قبل ذلك. هذه الصياغة تحتاج مراجعة محامٍ، خصوصًا لو استخدم الموقع أشخاص خارج مصر.</p><a class="back" href="#/">العودة للأداة</a></section>
 <section id="pg-disclaimer" class="pg" hidden><h1>إخلاء مسؤولية قانوني</h1><p>المسودات التي تنتجها هذه الأداة استرشادية فقط، وليست استشارة قانونية ولا عقدًا نهائيًا.</p><ul><li>قد تحتوي المسودة على أخطاء أو نقص أو بنود لا تناسب حالتك.</li><li>لا تنتقل ملكية العقار إلا بالتسجيل في الشهر العقاري، ومجرد توقيع عقد عرفي لا يكفي لذلك.</li><li>الإيجار القديم (القوانين 49 لسنة 1977 و136 لسنة 1981 و164 لسنة 2025) والأراضي الزراعية لهما قواعد خاصة لا تغطيها الأداة.</li><li>لا تشمل المسودة الضرائب والرسوم، وهي تختلف بحسب الحالة.</li><li><b>اعرض أي مسودة على محامٍ مرخّص قبل التوقيع.</b></li></ul><a class="back" href="#/">العودة للأداة</a></section>
@@ -213,142 +222,9 @@ footer{color:var(--mute)}
 </main>
 <nav class="fnav" style="margin:0 14px 90px" aria-label="روابط الموقع"><a href="#/about">عن الأداة</a><a href="#/terms">الشروط</a><a href="#/privacy">الخصوصية</a><a href="#/disclaimer">إخلاء المسؤولية</a><a href="#/contact">تواصل</a></nav>
 <div class="dock" id="dock" hidden><button id="copy" class="primary" type="button"><svg class="i" aria-hidden="true"><use href="#i-copy"/></svg><span id="copylbl">انسخ العقد</span></button><button id="word" type="button"><svg class="i" aria-hidden="true"><use href="#i-download"/></svg>Word</button><button id="prt" type="button"><svg class="i" aria-hidden="true"><use href="#i-file-text"/></svg>طباعة</button></div>
-<script>
-__LOGIC__
-const $ = (id) => document.getElementById(id);
-const svg = (n, c) => '<svg class="i ' + (c || '') + '" aria-hidden="true"><use href="#i-' + n + '"/></svg>';
-const ICON_ALERT = svg('alert', 'sm'), ICON_INFO = svg('info', 'sm'), ICON_OK = svg('check', 'sm');
-const esc = (s) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-const TEMPLATE_VER = 'نسخة القالب 1.0 · ٢٦ نوفمبر ٢٠٢٦';
-let kind = 'sale', lastPlain = '', recording = false, rec = null, base = '';
-function setKind(k) { kind = k; $('k-sale').className = k === 'sale' ? 'on' : ''; $('k-lease').className = k === 'lease' ? 'on' : ''; $('txt').value = ''; $('out').hidden = true; $('dock').hidden = true; }
-$('k-sale').onclick = () => setKind('sale');
-$('k-lease').onclick = () => setKind('lease');
-$('ex').onclick = () => { $('txt').value = SAMPLES[kind]; render(); };
-$('clr').onclick = () => { $('txt').value = ''; $('out').hidden = true; $('dock').hidden = true; };
-$('go').onclick = render;
-const ph = (s) => s.split(/(\u0001[^\u0002]*\u0002)/).filter(Boolean).map((x) => x.startsWith('\u0001') ? '<mark>[' + esc(x.slice(1, -1)) + ']</mark>' : esc(x)).join('');
-function docHtml(lines) {
-  let h = '<div class="in">', sigs = [];
-  for (const s of lines) {
-    if (s.startsWith('# ')) { h += '<div class="t">' + esc(s.slice(2)) + '</div><div class="tl"></div>'; continue; }
-    if (/: \.{6,}$/.test(s)) { sigs.push(s.replace(/: \.{6,}$/, '').replace(/^الطرف (?:الأول|الثاني) /, '')); continue; }
-    const cm = /^(البند [^(:]+)\(([^)]*)\):\s*(.*)$/.exec(s);
-    if (cm) { h += '<div class="cl"><div class="ch">' + esc(cm[1].trim()) + '<em>' + esc(cm[2]) + '</em></div><p>' + ph(cm[3]) + '</p></div>'; continue; }
-    h += '<p>' + ph(s) + '</p>';
-  }
-  if (sigs.length) h += '<div class="sigs">' + sigs.map((x) => '<div class="sg">' + esc(x.replace(/[()]/g, '')) + '<small>التوقيع</small></div>').join('') + '</div>';
-  return h + '<div class="tver">' + TEMPLATE_VER + ' · مسودة استرشادية تحتاج مراجعة محامٍ</div></div>';
-}
-function render() {
-  const text = $('txt').value;
-  if (!text.trim()) { status('اكتب أو سجّل الاتفاق أولًا، ثم اضغط «اكتب العقد».', true); $('txt').focus(); return; }
-  status('');
-  const p = parse(kind, text), checks = runChecks(kind, p), lines = build(kind, p);
-  const real = checks.filter((c) => !c.info), missing = real.filter((c) => !c.ok).length, okc = real.length - missing;
-  $('sum').className = 'sum' + (missing ? ' bad' : '');
-  const pct = Math.round(okc / real.length * 100);
-  $('sum').innerHTML = '<div class="ring" style="--p:' + pct + '"><b>' + okc + '/' + real.length + '<small>موجود</small></b></div><div><div class="tt">' + (missing ? missing + (missing === 1 ? ' بند يحتاج انتباه' : ' بنود تحتاج انتباه') : 'كل البنود الأساسية موجودة') + '</div><div class="sub">الفحص يتأكد من وجود الأركان في كلامك فقط. لا يتأكد من صحة الأسماء أو الأرقام أو من الملكية.</div></div>';
-  const card = (c, cls, ic) => '<div class="chk ' + cls + '"><div class="ic" aria-hidden="true">' + ic + '</div><div><b>' + esc(c.name) + (c.art ? ' <span class="art">' + c.art + '</span>' : '') + '</b><div class="d">' + esc(c.detail) + '</div></div></div>';
-  const need = checks.filter((c) => !c.info && !c.ok), infos = checks.filter((c) => c.info), oks = checks.filter((c) => !c.info && c.ok);
-  $('checks').innerHTML = (need.length ? '<h3>' + ICON_ALERT + 'يحتاج انتباه</h3>' + need.map((c) => card(c, 'x', ICON_ALERT)).join('') : '') + (infos.length ? '<h3>' + ICON_INFO + 'معلومات قانونية</h3>' + infos.map((c) => card(c, 'i', ICON_INFO)).join('') : '') + (oks.length ? '<h3>' + ICON_OK + 'موجود في كلامك</h3><div class="oks">' + oks.map((c) => '<span class="ok">' + ICON_OK + esc(c.name) + (c.art ? ' <span class="art">' + c.art + '</span>' : '') + '</span>').join('') + '</div>' : '');
-  $('doc').innerHTML = docHtml(lines);
-  lastPlain = lines.map((l) => l.replace(/^# /, '').replace(/\u0001([^\u0002]*)\u0002/g, '[$1]')).join('\n\n') + '\n\n' + TEMPLATE_VER + ' · مسودة استرشادية تحتاج مراجعة محامٍ';
-  const show = kind === 'sale' ? ['م 418', 'م 419', 'م 428', 'م 430', 'م 431', 'م 435', 'م 439', 'م 447', 'م 458', 'م 462', 'م 223', 'م 224', 'م 934'] : ['م 558', 'م 559', 'م 562', 'م 564', 'م 567', 'م 579', 'م 583', 'م 590', 'م 591', 'م 593'];
-  $('refs').innerHTML = REFS.filter((r) => show.includes(r.n)).map((r) => '<div class="ref"><b>' + r.n + '</b><span>' + esc(r.t) + '</span></div>').join('');
-  $('out').hidden = false; $('dock').hidden = false;
-  $('out').scrollIntoView({ behavior: window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
-}
-$('copy').onclick = async () => {
-  try { await navigator.clipboard.writeText(lastPlain); $('copylbl').textContent = 'تم النسخ'; }
-  catch (e) { const t = $('txt'); const ta = document.createElement('textarea'); ta.value = lastPlain; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); $('copylbl').textContent = 'تم النسخ'; } catch (e2) { $('copylbl').textContent = 'تعذر النسخ'; } ta.remove(); }
-  setTimeout(() => { $('copylbl').textContent = 'انسخ العقد'; }, 2000);
-};
-/*DOCX_START*/
-function makeDocx(paras) {
-  const enc = new TextEncoder();
-  const X = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, '');
-  const body = paras.map((t, i) => {
-    const head = i === 0, last = i === paras.length - 1 && paras.length > 2;
-    const sz = head ? 32 : last ? 20 : 26;
-    const rpr = '<w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>' + (head ? '<w:b/><w:bCs/>' : '') + '<w:sz w:val="' + sz + '"/><w:szCs w:val="' + sz + '"/><w:rtl/><w:lang w:bidi="ar-EG"/></w:rPr>';
-    return '<w:p><w:pPr><w:bidi/><w:spacing w:after="160" w:line="360" w:lineRule="auto"/><w:jc w:val="' + (head ? 'center' : 'both') + '"/></w:pPr><w:r>' + rpr + '<w:t xml:space="preserve">' + X(t) + '</w:t></w:r></w:p>';
-  }).join('');
-  const files = [
-    ['[Content_Types].xml', '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>'],
-    ['_rels/.rels', '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>'],
-    ['word/document.xml', '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body>' + body + '<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1134" w:right="1134" w:bottom="1134" w:left="1134" w:header="708" w:footer="708" w:gutter="0"/><w:bidi/></w:sectPr></w:body></w:document>'],
-  ].map(([n, c]) => [enc.encode(n), enc.encode(c)]);
-  const tbl = new Uint32Array(256);
-  for (let n = 0; n < 256; n++) { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; tbl[n] = c >>> 0; }
-  const crc = (b) => { let c = 0xFFFFFFFF; for (let i = 0; i < b.length; i++) c = tbl[(c ^ b[i]) & 255] ^ (c >>> 8); return (c ^ 0xFFFFFFFF) >>> 0; };
-  const parts = [], cen = []; let off = 0;
-  const u16 = (v) => [v & 255, (v >> 8) & 255], u32 = (v) => [v & 255, (v >> 8) & 255, (v >> 16) & 255, (v >>> 24) & 255];
-  for (const [nm, data] of files) {
-    const c = crc(data);
-    const lh = new Uint8Array([0x50, 0x4b, 3, 4, ...u16(20), ...u16(0x0800), ...u16(0), ...u16(0), ...u16(0x21), ...u32(c), ...u32(data.length), ...u32(data.length), ...u16(nm.length), ...u16(0)]);
-    parts.push(lh, nm, data);
-    cen.push(new Uint8Array([0x50, 0x4b, 1, 2, ...u16(20), ...u16(20), ...u16(0x0800), ...u16(0), ...u16(0), ...u16(0x21), ...u32(c), ...u32(data.length), ...u32(data.length), ...u16(nm.length), ...u16(0), ...u16(0), ...u16(0), ...u16(0), ...u32(0), ...u32(off)]), nm);
-    off += lh.length + nm.length + data.length;
-  }
-  const cenLen = cen.reduce((s, x) => s + x.length, 0);
-  const end = new Uint8Array([0x50, 0x4b, 5, 6, 0, 0, 0, 0, ...u16(files.length), ...u16(files.length), ...u32(cenLen), ...u32(off), 0, 0]);
-  const all = [...parts, ...cen, end], out = new Uint8Array(all.reduce((s, x) => s + x.length, 0)); let p = 0;
-  for (const x of all) { out.set(x, p); p += x.length; }
-  return out;
-}
-/*DOCX_END*/
-$('word').onclick = () => {
-  const paras = lastPlain.split('\n\n').map((l) => l.replace(/\n/g, ' ')).filter(Boolean);
-  const bytes = makeDocx(paras);
-  const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([bytes], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' }));
-  a.download = (kind === 'sale' ? 'sale-contract' : 'lease-contract') + '.docx'; document.body.appendChild(a); a.click(); a.remove();
-  setTimeout(() => URL.revokeObjectURL(a.href), 60000);
-};
-$('prt').onclick = () => window.print();
-function route() {
-  const h = (location.hash || '').replace(/^#\/?/, '');
-  const ok = ['about', 'terms', 'privacy', 'disclaimer', 'contact'].includes(h);
-  $('home').hidden = ok;
-  for (const k of ['about', 'terms', 'privacy', 'disclaimer', 'contact']) $('pg-' + k).hidden = h !== k;
-  $('dock').style.display = ok ? 'none' : '';
-  const t = { about: 'عن الأداة', terms: 'شروط الاستخدام', privacy: 'الخصوصية', disclaimer: 'إخلاء المسؤولية', contact: 'تواصل' };
-  document.title = ok ? t[h] + ' · مسودة عقد من كلامك' : TITLE0;
-  window.scrollTo(0, 0);
-}
-const TITLE0 = document.title;
-addEventListener('hashchange', route); route();
-const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-function status(m, err) { $('status').className = err ? 'err' : ''; $('status').textContent = m || ''; }
-function stopRec() { recording = false; if (rec) { try { rec.stop(); } catch (e) {} } $('mic').className = 'mic'; $('mic').innerHTML = svg('mic'); $('miclbl').textContent = 'تسجيل'; }
-$('mic').onclick = () => {
-  if (!SR) { status('هذا المتصفح لا يدعم التعرف على الكلام. افتح الصفحة في Chrome، أو اكتب بيدك، أو استخدم ميكروفون لوحة المفاتيح.', true); return; }
-  if (recording) { stopRec(); status('توقف التسجيل.'); return; }
-  base = $('txt').value; recording = true; $('mic').className = 'mic rec'; $('mic').innerHTML = svg('mic-off'); $('miclbl').textContent = 'إيقاف'; status('جاري الاستماع... تكلم.');
-  const start = () => {
-    rec = new SR(); rec.lang = 'ar-EG'; rec.interimResults = true; rec.continuous = false;
-    rec.onresult = (e) => {
-      let fin = '', interim = '';
-      for (let i = e.resultIndex; i < e.results.length; i++) { const t = e.results[i][0].transcript; if (e.results[i].isFinal) fin += t; else interim += t; }
-      if (fin) { base = (base ? base.replace(/\s*$/, ' ') : '') + fin.trim(); }
-      $('txt').value = base + (interim ? ' ' + interim : '');
-    };
-    rec.onerror = (e) => {
-      if (e.error === 'no-speech') return;
-      if (e.error === 'not-allowed' || e.error === 'service-not-allowed') { stopRec(); status('الميكروفون غير مسموح. اسمح للصفحة باستخدام الميكروفون من إعدادات الموقع في Chrome ثم جرّب مرة أخرى.', true); }
-      else if (e.error === 'network') { stopRec(); status('تعذر الاتصال بخدمة التعرف على الكلام. تأكد من الإنترنت أو اكتب بيدك.', true); }
-      else if (e.error === 'audio-capture') { stopRec(); status('لم يُعثر على ميكروفون في هذا الجهاز. اكتب بيدك أو وصّل ميكروفونًا.', true); }
-      else if (e.error !== 'aborted') { stopRec(); status('تعذر التسجيل الصوتي. اكتب بيدك أو جرّب مرة أخرى.', true); }
-    };
-    rec.onend = () => { if (recording) { try { start(); } catch (e) { stopRec(); } } };
-    rec.start();
-  };
-  try { start(); } catch (e) { stopRec(); status('تعذر بدء التسجيل.', true); }
-};
-</script>
+<script>__LOGIC__</script>
 <script type="text/plain" id="fontcss">
-__FONTS__
-</script>
+__FONTS__</script>
 <script>(function(){var s=document.createElement('style');s.textContent=document.getElementById('fontcss').textContent;document.head.appendChild(s);})();</script>
 </body>
 </html>
