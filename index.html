@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; font-src data:; img-src data:; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2024%2024%27%3E%3Crect%20width=%2724%27%20height=%2724%27%20rx=%275%27%20fill=%27%230e5c4c%27/%3E%3Cpath%20d=%27M8%206h6l3%203v9H8z%27%20fill=%27none%27%20stroke=%27white%27%20stroke-width=%271.6%27/%3E%3C/svg%3E">
-<meta name="description" content="مسودة عقد بيع أو إيجار من كلامك بالعامية المصرية، مع مراجعة على القانون المدني. مسودة استرشادية ليست استشارة قانونية.">
+<meta name="description" content="مسودة عقد بيع أو إيجار لأي شيء (عقار أو أرض أو سيارة أو معدات) من كلامك بالعامية المصرية، مع مراجعة على القانون المدني. مسودة استرشادية ليست استشارة قانونية.">
 <title>مسودة عقد من كلامك</title>
 <style>
 #refs,footer{content-visibility:auto;contain-intrinsic-size:auto 320px}
@@ -41,6 +41,13 @@ p{margin:6px 0}
 .seg{display:grid;grid-template-columns:1fr 1fr;background:#ece8de;border-radius:var(--r2);padding:5px;gap:5px;margin-bottom:16px}
 .seg button{min-height:54px;border:0;background:transparent;border-radius:14px;font-size:18px;font-weight:700;color:var(--mute);display:flex;align-items:center;justify-content:center;gap:8px}
 .seg button.on{background:#fff;color:var(--g700);box-shadow:0 2px 8px rgba(0,0,0,.13)}
+.alab{font-size:15px;font-weight:700;color:var(--mute);margin:0 2px 8px}
+.seg2{display:flex;flex-wrap:wrap;gap:6px;background:transparent;padding:0;margin-bottom:16px}
+.seg2 button{min-height:42px;border:0;border-radius:999px;background:#ece8de;color:var(--ink2);font-size:15px;font-weight:700;padding:0 14px;flex:1 1 auto;min-width:0;white-space:nowrap;display:flex;align-items:center;justify-content:center}
+.seg2 button.on{background:var(--g700);color:#fff;box-shadow:0 2px 8px rgba(0,0,0,.13)}
+#assetrow button{background:#ece8de;color:var(--ink2);border:0;min-height:42px;border-radius:999px;padding:0 14px;font-size:15px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex:1 1 auto;min-width:0;white-space:nowrap}
+#assetrow button.on{background:var(--g700);color:#fff;border-color:var(--g700);box-shadow:0 2px 8px rgba(0,0,0,.13)}
+@media(max-width:430px){.seg2 button{font-size:14px;padding:0 10px}#assetrow button{font-size:14px;padding:0 10px}}
 button{font:inherit;min-height:52px;padding:0 18px;border-radius:var(--r2);border:1.5px solid #d6d0c4;background:#fff;color:var(--ink);cursor:pointer;font-weight:700;font-size:16.5px;display:inline-flex;align-items:center;justify-content:center;gap:8px}
 button:active{transform:scale(.98)}
 button:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #7fb8a8;outline-offset:2px}
@@ -183,6 +190,8 @@ footer{color:var(--mute)}
 <section class="panel">
 <h2><span class="n">1</span>نوع العقد</h2>
 <div class="seg" role="group" aria-label="نوع العقد"><button id="k-sale" class="on" type="button"><svg class="i" aria-hidden="true"><use href="#i-handshake"/></svg>بيع</button><button id="k-lease" type="button"><svg class="i" aria-hidden="true"><use href="#i-key-round"/></svg>إيجار</button></div>
+<div class="alab">نوع الشيء (يُتعرَّف عليه من كلامك)</div>
+<div class="seg2" id="assetrow" role="group" aria-label="نوع الشيء"><button type="button" data-asset="" class="on">تلقائي</button><button type="button" data-asset="home">عقار</button><button type="button" data-asset="land">أرض</button><button type="button" data-asset="shop">محل/مكتب</button><button type="button" data-asset="vehicle">سيارة</button><button type="button" data-asset="equipment">معدات</button><button type="button" data-asset="other">أخرى</button></div>
 <h2><span class="n">2</span>احكِ الاتفاق</h2>
 <details class="tips"><summary><svg class="i sm" aria-hidden="true"><use href="#i-lightbulb"/></svg>إزاي أتكلم؟<span class="chev"><svg class="i sm" aria-hidden="true"><use href="#i-chevron-down"/></svg></span></summary><ul><li>اذكر البائع والمشتري (أو المؤجر والمستأجر) بالاسم، ثم الرقم القومي لكل واحد.</li><li>جملة قصيرة لكل معلومة: الوصف، الثمن أو الأجرة، السداد، المدة، التسليم.</li><li>الأرقام بالأرقام أو بالكلام، مع كلمة «جنيه».</li><li>التاريخ مثل: من 1/1/2027، أو: من أول يناير 2027.</li></ul></details>
 <div class="field"><textarea id="txt" dir="rtl" lang="ar" placeholder="مثال: البائع أحمد محمد... رقمه القومي... المشتري... باع الشقة رقم... الثمن ... جنيه..." aria-label="نص الاتفاق"></textarea></div>
@@ -196,16 +205,16 @@ footer{color:var(--mute)}
 <div class="sum" id="sum" role="status"></div>
 <div id="checks"></div></section>
 <section class="sect"><h2><span class="n">4</span>المسودة</h2>
-<div class="disc" role="note"><svg class="i sm" aria-hidden="true"><use href="#i-alert"/></svg><div><b>تنبيه مهم</b>هذه مسودة آلية للاسترشاد فقط. ليست استشارة قانونية ولا عقدًا نهائيًا، وقد تخطئ في فهم الكلام أو في اختيار البنود. قبل التوقيع اعرضها على محامٍ، وراجع الأسماء والأرقام والمبالغ من المستندات الأصلية. ولا تنتقل ملكية العقار إلا بالتسجيل في الشهر العقاري.</div></div>
+<div class="disc" role="note"><svg class="i sm" aria-hidden="true"><use href="#i-alert"/></svg><div><b>تنبيه مهم</b>هذه مسودة آلية للاسترشاد فقط. ليست استشارة قانونية ولا عقدًا نهائيًا، وقد تخطئ في فهم الكلام أو في اختيار البنود. قبل التوقيع اعرضها على محامٍ، وراجع الأسماء والأرقام والمبالغ من المستندات الأصلية. <span id="disc-prop">ولا تنتقل ملكية العقار إلا بالتسجيل في الشهر العقاري.</span></div></div>
 <p class="hint"><svg class="i sm" aria-hidden="true"><use href="#i-info"/></svg><span>الخانات الصفراء بين أقواس مربعة ناقصة. أكمل كلامك واضغط «اكتب العقد» مرة ثانية، أو انسخ النص وعدّله.</span></p>
 <div class="printdisc">مسودة استرشادية آلية وليست استشارة قانونية. تُراجَع من محامٍ قبل التوقيع.</div><div class="doc" id="doc"></div></section>
 <section class="sect"><h2><svg class="i" aria-hidden="true"><use href="#i-scale"/></svg>المواد المرجعية</h2>
 <div id="refs"></div></section>
 </div>
-<footer>المصدر: القانون المدني رقم 131 لسنة 1948، بنص المواد المنشور على موقع مصلحة الضرائب المصرية (eta.gov.eg)، ونص المادة 934 كما ورد في مصدر قانوني منشور. قد تكون بعض المواد عُدّلت بعد هذا النص، فراجع آخر صياغة قبل التوقيع. المادة التي تبدأ بكلمة «مقتطف» مأخوذة جزئيًا. نطاق العقود: العقود الجديدة الخاضعة للقانون المدني (القانون 4 لسنة 1996). الإيجار القديم له قوانين خاصة لا تغطيها المسودة. هذه أداة مساعدة تجريبية: المسودة التي تنتجها استرشادية، وتحتاج مراجعة محامٍ قبل التوقيع أو أي استخدام رسمي. لا تغني عن الاستشارة القانونية.</footer>
+<footer>المصدر: القانون المدني رقم 131 لسنة 1948، بنص المواد المنشور على موقع مصلحة الضرائب المصرية (eta.gov.eg)، ونص المادة 934 كما ورد في مصدر قانوني منشور. قد تكون بعض المواد عُدّلت بعد هذا النص، فراجع آخر صياغة قبل التوقيع. المادة التي تبدأ بكلمة «مقتطف» مأخوذة جزئيًا. نطاق العقود: العقود الجديدة الخاضعة للقانون المدني (القانون 4 لسنة 1996). الإيجار القديم له قوانين خاصة لا تغطيها المسودة. وبنود المسودة تتغير حسب نوع الشيء: عقار أو أرض أو سيارة أو معدات. هذه أداة مساعدة تجريبية: المسودة التي تنتجها استرشادية، وتحتاج مراجعة محامٍ قبل التوقيع أو أي استخدام رسمي. لا تغني عن الاستشارة القانونية.</footer>
 
 </div>
-<section id="pg-about" class="pg" hidden><h1>عن الأداة</h1><p>«مسودة عقد من كلامك» أداة مجانية تجريبية. تحكي الاتفاق بالعامية المصرية، فتطلع لك مسودة عقد بيع أو إيجار مرتبة، وتراجعها على نصوص القانون المدني المصري.</p><h2>من نحن</h2><p>الأداة من تطوير وتشغيل سامح طه، بشكل فردي. يعمل سامح في صياغة العقود وكتابتها، ويعمل في مكتب محاماة، وأُعدّت الأداة بعد الرجوع إلى مكتب المحاماة الذي يعمل فيه.</p><h2>ما هي وما ليست</h2><ul><li>أداة مساعدة تكتب مسودة وتنبّه للبنود الناقصة.</li><li>ليست مكتب محاماة ولا جهة حكومية، ولا تقدم استشارة قانونية، ولا تعوّض عن المحامي.</li><li>لا تسجّل العقد في الشهر العقاري ولا توثّقه.</li><li>المسودة للاسترشاد فقط، وراجعها مع محامٍ قبل التوقيع.</li></ul><h2>الدعم</h2><p>لأي مشكلة في استخدام الأداة (خطأ في الموقع أو سؤال عن طريقة الاستخدام): <a href="mailto:samehtaha747@gmail.com">samehtaha747@gmail.com</a>. الدعم تقني فقط ولا نرد على أي استفسار قانوني.</p><a class="back" href="#/">العودة للأداة</a></section>
+<section id="pg-about" class="pg" hidden><h1>عن الأداة</h1><p>«مسودة عقد من كلامك» أداة مجانية تجريبية. تحكي الاتفاق بالعامية المصرية، فتطلع لك مسودة عقد بيع أو إيجار لأي شيء: عقار أو أرض أو سيارة أو معدات، مرتبة، وتراجعها على نصوص القانون المدني المصري.</p><h2>من نحن</h2><p>الأداة من تطوير وتشغيل سامح طه، بشكل فردي. يعمل سامح في صياغة العقود وكتابتها، ويعمل في مكتب محاماة، وأُعدّت الأداة بعد الرجوع إلى مكتب المحاماة الذي يعمل فيه.</p><h2>ما هي وما ليست</h2><ul><li>أداة مساعدة تكتب مسودة وتنبّه للبنود الناقصة.</li><li>ليست مكتب محاماة ولا جهة حكومية، ولا تقدم استشارة قانونية، ولا تعوّض عن المحامي.</li><li>لا تسجّل العقد في الشهر العقاري ولا توثّقه.</li><li>المسودة للاسترشاد فقط، وراجعها مع محامٍ قبل التوقيع.</li></ul><h2>الدعم</h2><p>لأي مشكلة في استخدام الأداة (خطأ في الموقع أو سؤال عن طريقة الاستخدام): <a href="mailto:samehtaha747@gmail.com">samehtaha747@gmail.com</a>. الدعم تقني فقط ولا نرد على أي استفسار قانوني.</p><a class="back" href="#/">العودة للأداة</a></section>
 <section id="pg-terms" class="pg" hidden><h1>شروط الاستخدام</h1><p>باستخدامك الأداة توافق على التالي. آخر تحديث: ٢٦ نوفمبر ٢٠٢٦.</p><ul><li>الأداة تنتج مسودات استرشادية آلية. قد تخطئ في فهم الكلام أو في اختيار البنود أو في الأسماء والأرقام والمبالغ.</li><li>أنت المسؤول عن مراجعة كل بيان في المسودة من مستنداتك الأصلية قبل أي استخدام.</li><li>لا تعتمد على المسودة وحدها في توقيع أو دفع أو تسجيل. اعرضها على محامٍ مرخّص.</li><li>تُقدَّم الأداة «كما هي» دون أي ضمان بالدقة أو الاكتمال أو الملاءمة لحالتك. وبالقدر الذي يسمح به القانون، لا يتحمل مشغّل الأداة مسؤولية عن أي خسارة ناتجة عن استخدامها. تحقق من مدى سريان هذا البند مع محامٍ.</li><li>نصوص المواد المعروضة مأخوذة من القانون المدني رقم 131 لسنة 1948 كما نشرته مصلحة الضرائب المصرية، وقد تكون عُدّلت لاحقًا.</li><li>لا تدخل بيانات حقيقية حساسة لا حاجة لها. استخدم أسماء وأرقامًا تجريبية عند التجربة.</li></ul><p>هذه الصياغة نفسها تحتاج مراجعة محامٍ قبل الإطلاق الرسمي.</p><a class="back" href="#/">العودة للأداة</a></section>
 <section id="pg-privacy" class="pg" hidden><h1>الخصوصية</h1><p>آخر تحديث: ٢٦ نوفمبر ٢٠٢٦.</p><h2>ما تكتبه</h2><p>النص الذي تكتبه أو تتكلم به يُعالَج داخل متصفحك على جهازك لتكوين المسودة. لا يرسله موقعنا إلى أي خادم ولا يحفظه، ويختفي عند إغلاق الصفحة أو تحديثها.</p><h2>الميكروفون</h2><p>زر الميكروفون يطلب إذنك أولًا، ويستخدم خدمة التعرف على الكلام في متصفح Chrome. Chrome يرسل الصوت إلى خوادم Google ليحوّله إلى نص، وهذا يخضع لسياسة خصوصية Google وليس لنا سيطرة عليه. لا نحصل على تسجيل الصوت. إن أردت تجنّب ذلك فاكتب بيدك ولا تضغط زر الميكروفون.</p><h2>ما قد تسجله الاستضافة</h2><p>الموقع مُستضاف لدى مزوّد استضافة خارجي، وقد تسجّل خوادمه بيانات تقنية مثل عنوان IP ونوع المتصفح عند فتح الصفحة. لا نضع في الصفحة أي أدوات تتبع أو إعلانات أو كوكيز.</p><h2>مراسلة الدعم</h2><p>إن راسلت بريد الدعم فالرسالة تصل إلى سامح طه وتخضع لسياسة خصوصية مزوّد البريد. نستخدمها للرد عليك فقط. لا ترسل بيانات عقد حقيقية أو أرقامًا قومية.</p><h2>ملاحظة</h2><p>إن أضفنا مستقبلًا حسابات أو حفظًا للعقود، سنحدّث هذه الصفحة قبل ذلك. هذه الصياغة تحتاج مراجعة محامٍ، خصوصًا لو استخدم الموقع أشخاص خارج مصر.</p><a class="back" href="#/">العودة للأداة</a></section>
 <section id="pg-disclaimer" class="pg" hidden><h1>إخلاء مسؤولية قانوني</h1><p>المسودات التي تنتجها هذه الأداة استرشادية فقط، وليست استشارة قانونية ولا عقدًا نهائيًا.</p><ul><li>قد تحتوي المسودة على أخطاء أو نقص أو بنود لا تناسب حالتك.</li><li>لا تنتقل ملكية العقار إلا بالتسجيل في الشهر العقاري، ومجرد توقيع عقد عرفي لا يكفي لذلك.</li><li>الإيجار القديم (القوانين 49 لسنة 1977 و136 لسنة 1981 و164 لسنة 2025) والأراضي الزراعية لهما قواعد خاصة لا تغطيها الأداة.</li><li>لا تشمل المسودة الضرائب والرسوم، وهي تختلف بحسب الحالة.</li><li><b>اعرض أي مسودة على محامٍ مرخّص قبل التوقيع.</b></li></ul><a class="back" href="#/">العودة للأداة</a></section>
@@ -220,7 +229,13 @@ footer{color:var(--mute)}
 const SAMPLES                       = {
     sale: 'البائع أحمد محمد علي، رقمه القومي 28001011234567، يسكن القاهرة. المشتري محمود سمير حسن، رقمه القومي 29005051234567. باع الشقة رقم 5 بالدور الثالث بالعقار رقم 12 شارع التحرير مدينة نصر القاهرة مساحتها 120 متر. الثمن 1500000 جنيه. المشتري دفع مقدم 500000 جنيه والباقي على 10 أقساط شهرية. التسليم بتاريخ 1/1/2027.',
     lease: 'المؤجر خالد إبراهيم السيد، رقمه القومي 27503031234567. المستأجر ياسر عادل فوزي، رقمه القومي 29207071234567. أجّر شقة سكنية رقم 8 بالدور الثاني بالعقار 3 شارع الجمهورية الجيزة. مدة العقد سنتين تبدأ من 1/1/2027. الأجرة 6000 جنيه شهريا تدفع أول كل شهر. التأمين 12000 جنيه. زيادة سنوية 10 بالمائة. المستأجر يتحمل فواتير الكهرباء والمياه.',
-};
+    'lease:vehicle': 'المؤجر محمد أحمد علي، رقمه القومي 27503031234567، يسكن 5 شارع النيل الدقي الجيزة. المستأجر هاني سمير فؤاد، رقمه القومي 29207071234567، يسكن 10 شارع الهرم فيصل. أجّر سيارة تويوتا كورولا موديل 2023 لوحات أ ب ج 123. مدة الإيجار 3 أيام تبدأ من 1/3/2027 الساعة 10 صباحا. الأجرة 1500 جنيه في اليوم تدفع عند الاستلام. وديعة تأمين 5000 جنيه. التأمين شامل. المستأجر يتحمل البنزين ومخالفات المرور. قراءة العداد 45000 كيلومتر. معاه رخصة قيادة رقم 123456. التأخير في الرد 500 جنيه عن كل يوم. الشرط الجزائي 3000 جنيه.',
+    'sale:vehicle': 'البائع محمد أحمد علي، رقمه القومي 27503031234567، يسكن 5 شارع النيل الدقي الجيزة. المشتري هاني سمير فؤاد، رقمه القومي 29207071234567. باع سيارة تويوتا كورولا موديل 2023 لوحات أ ب ج 123. الثمن 450000 جنيه. المشتري دفع 100000 جنيه مقدم والباقي عند التسليم. التسليم بتاريخ 1/4/2027. معاه رخصة السيارة. قراءة العداد 45000 كيلومتر. الشرط الجزائي 10000 جنيه.',
+
+    'lease:equipment': 'المؤجر محمد أحمد علي، رقمه القومي 27503031234567، يسكن 5 شارع النيل الدقي الجيزة. المستأجر هاني سمير فؤاد، رقمه القومي 29207071234567، يسكن 10 شارع الهرم فيصل. أجّر ماكينة تصوير ريكو رقم 5566. مدة الإيجار سنة تبدأ من 1/5/2027. الأجرة 2000 جنيه شهريا تدفع أول كل شهر. وديعة تأمين 4000 جنيه. الشرط الجزائي 5000 جنيه.',
+    'sale:equipment': 'البائع محمد أحمد علي، رقمه القومي 27503031234567، يسكن 5 شارع النيل الدقي الجيزة. المشتري هاني سمير فؤاد، رقمه القومي 29207071234567، يسكن 10 شارع الهرم فيصل. باع ماكينة تصوير ريكو رقم 5566. الثمن 25000 جنيه. المشتري دفع 5000 جنيه مقدم والباقي عند التسليم. التسليم بتاريخ 1/5/2027. الشرط الجزائي 3000 جنيه.',
+    'lease:other': 'المؤجر محمد أحمد علي، رقمه القومي 27503031234567، يسكن 5 شارع النيل الدقي الجيزة. المستأجر هاني سمير فؤاد، رقمه القومي 29207071234567، يسكن 10 شارع الهرم فيصل. أجّر موبايل ايفون 15 برو. مدة الإيجار 6 أشهر تبدأ من 1/2/2027. الأجرة 500 جنيه شهريا تدفع أول كل شهر. وديعة تأمين 2000 جنيه. الشرط الجزائي 1500 جنيه.',
+    'sale:other': 'البائع محمد أحمد علي، رقمه القومي 27503031234567، يسكن 5 شارع النيل الدقي الجيزة. المشتري هاني سمير فؤاد، رقمه القومي 29207071234567، يسكن 10 شارع الهرم فيصل. باع موبايل ايفون 15 برو. الثمن 40000 جنيه. التسليم عند التوقيع. الشرط الجزائي 2000 جنيه.',};
 
 const norm = (s        ) => s
     .replace(/[٠-٩]/g, (d) => String('٠١٢٣٤٥٦٧٨٩'.indexOf(d)))
@@ -229,7 +244,7 @@ const norm = (s        ) => s
     .replace(/(المستاجر|المؤجر|البايع|البائع|المشتري|المالك)ه(?=\s|$)/g, '$1 ');
 
 const MARKS = 'ال?بايع|البائع|المشتري|المؤجر|المستاجر|المالك|الطرف|باع|ب?يبيع|اجر|ب?يؤجر|ل?لمشتري|للمستاجر|ثمنه|ثمنها|سعرها|سعره|المبيع|بمبلغ|بثمن|بسعر|سعر|ثمن|الثمن|(?:ال)?مده|لمده|(?:ال)?اجره|اجرتها|بااجره|بايجار|بالايجار|الايجار|ايجارها|ايجار|(?:ال)?تامين|(?:ال)?زياده|(?:ال)?تسليم|العقد(?=\\s+مسجل)|عقد(?=\\s+(?:تملك|التملك|سابق|البيع|بيع))';
-const PROPW = '(?:ال)?(?:شقه|عقار|ارض|سياره|عربيه|موتوسيكل|محل|وحده|فيلا|مخزن|قطعه|منزل|بيت|دكان|مكتب|عياده|مصنع|مزرعه)';
+const PROPW = '(?:ال)?(?:شقه|عقار|ارض|سياره|عربيه|موتوسيكل|دراجه|شاحنه|اتوبيس|تريلا|محل|وحده|فيلا|مخزن|قطعه|منزل|بيت|دكان|مكتب|عياده|مصنع|مزرعه|ماكينه|معدات|معدة|جهاز|اثاث|تجهيزات|موتور|كمبروسر|موبايل|هاتف|تليفون|لابتوب|كمبيوتر|تابلت)';
 const SALE_VERBS = '|(?<=جنيه\\s)(?:كاش|نقدا|نقدي)|ب?يدفع|ت?ب?تدفع|ب?يسدد|ب?تسدد|الدفع|السداد|دفع|ملكيه|ملكية|(?:ال)?شرط\\s+(?:ال)?جزائي|(?:ال)?تعويض\\s+(?:ال)?اتفاقي|(?:ال)?مقدم(?=\\s+\\d)|ال?باقي(?=\\s+(?:على|يتقسط|اقساط))';
 
                                     
@@ -319,6 +334,7 @@ function wordsAr(v        )         {
     return parts.join(' و');
 }
 const fmtMoney = (v        ) => v.toLocaleString('en-US') + ' جنيه مصري';
+const fmtN = (t        ) => (t || '').replace(/(?<![\d,.\/])(\d{4,})(?![\d\/])/g, (m0) => m0.replace(/\B(?=(\d{3})+(?!\d))/g, ','));
 const withWords = (m        )         => {
     const x = /^([\d,]+) جنيه مصري/.exec(m || '');
     if (!x) return m;
@@ -374,7 +390,8 @@ function durOf(n        )                                    {
             m += run.length ? numFrom(run) : 1;
         }
     }
-    return { years: y + Math.floor(m / 12), months: m % 12 };
+    const tm = Math.round(y * 12 + m);
+    return { years: Math.floor(tm / 12), months: tm % 12 };
 }
 function durText(d                                   )         {
     const YW = ['', '', '', 'ثلاث', 'أربع', 'خمس', 'ست', 'سبع', 'ثماني', 'تسع', 'عشر'], MW = ['', '', '', 'ثلاثة', 'أربعة', 'خمسة', 'ستة', 'سبعة', 'ثمانية', 'تسعة', 'عشرة'];
@@ -386,6 +403,8 @@ const realDate = (d        , mo        , y        ) => { const t = new Date(Date
 const hasBadDate = (raw        ) => { const n = D(norm(raw)); const re = /(?<!\d)(\d{1,2})\s*[\/\-.]\s*(\d{1,2})\s*[\/\-.]\s*(\d{4})(?!\d)/g; let m; while ((m = re.exec(n))) if (!realDate(Number(m[1]), Number(m[2]), Number(m[3]))) return true; return false; };
 function dateOf(raw        )         {
     const n = D(norm(raw));
+    const iso = /(?<!\d)(\d{4})\s*[\/\-.]\s*(\d{1,2})\s*[\/\-.]\s*(\d{1,2})(?!\d)/.exec(n);
+    if (iso) return realDate(Number(iso[3]), Number(iso[2]), Number(iso[1])) ? Number(iso[3]) + '/' + Number(iso[2]) + '/' + iso[1] : '';
     let m = /(?<!\d)(\d{1,2})\s*[\/\-.]\s*(\d{1,2})\s*[\/\-.]\s*(\d{4})(?!\d)/.exec(n);
     if (m) return realDate(Number(m[1]), Number(m[2]), Number(m[3])) ? Number(m[1]) + '/' + Number(m[2]) + '/' + m[3] : '';
     m = /(?<!\d)(\d{1,2}|اول)?\s*(?:من\s+)?(يناير|فبراير|مارس|ابريل|مايو|يونيو|يوليو|اغسطس|سبتمبر|اكتوبر|نوفمبر|ديسمبر)\s*(\d{4})?/.exec(n);
@@ -399,12 +418,69 @@ function dateOf(raw        )         {
 const PROP = /(شقه|عقار|ارض|سياره|محل|وحده|مبيع|فيلا|مخزن|قطعه|منزل|بيت|دكان|مكتب|عياده|مصنع|مزرعه|عين مؤجره|العين)/;
 const PARTY_START = /^(و?ال?بايع|و?البائع|و?المشتري|و?المؤجر|و?المستاجر|و?المالك|و?الطرف)/;
 
-function parse(kind      , rawText        ) {
+function addDur(start        , d        )         {
+    const m = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/.exec(start || '');
+    if (!m) return '';
+    const dt = new Date(Date.UTC(Number(m[3]), Number(m[2]) - 1, Number(m[1])));
+    dt.setUTCFullYear(dt.getUTCFullYear() + (d.years || 0));
+    dt.setUTCMonth(dt.getUTCMonth() + (d.months || 0));
+    dt.setUTCDate(dt.getUTCDate() + (d.days || 0) + Math.floor((d.hours || 0) / 24));
+    return dt.getUTCDate() + '/' + (dt.getUTCMonth() + 1) + '/' + dt.getUTCFullYear();
+}
+function durParts(n        )                                                               {
+    let t = joinW(toks(D(n)));
+    const cut = t.findIndex((w, i) => i > 0 && /^و?(?:تبدا|من|بتاريخ|بقيمه|بايجار|جنيه|تدفع|بتدفع|يدفع|مقدما|التامين|تامين|وديعه|الشرط|شرط|عند)$/.test(w));
+    if (cut > 0) t = t.slice(0, cut);
+    const before = (i        ) => { let j = i - 1; const run           = []; while (j >= 0 && isNumTok(t[j])) { run.unshift(t[j]); j--; } return run.length ? numFrom(run) : 1; };
+    let y = 0, m = 0, days = 0, hours = 0;
+    for (let i = 0; i < t.length; i++) {
+        const w = t[i].replace(/^و/, '');
+        if (w === 'سنتين' || w === 'عامين') { y += 2; if (t[i + 1] && /^و?(?:نص|نصف)$/.test(t[i + 1])) m += 6; continue; }
+        if (w === 'شهرين') { m += 2; continue; }
+        if (w === 'يومين') { days += 2; continue; }
+        if (w === 'ساعتين') { hours += 2; continue; }
+        if (w === 'اسبوعين') { days += 14; continue; }
+        if (/^(?:سنه|سنوات|سنين|عام|اعوام)$/.test(w)) { y += before(i); if (t[i + 1] && /^و?(?:نص|نصف)$/.test(t[i + 1])) m += 6; continue; }
+        if (/^(?:شهر|شهور|اشهر)$/.test(w)) { m += before(i); continue; }
+        if (/^(?:يوم|ايام)$/.test(w)) { days += before(i); continue; }
+        if (/^(?:ساعه|ساعات)$/.test(w)) { hours += before(i); continue; }
+        if (/^(?:اسبوع|اسابيع)$/.test(w)) { days += before(i) * 7; }
+    }
+    const tm = Math.round(y * 12 + m);
+    return { years: Math.floor(tm / 12), months: tm % 12, days, hours };
+}
+function durFromText(t        )         {
+    const n = norm(t);
+    const m = /((?:\d+|واحد|اثنين|اتنين|ثلاث|تلات|اربع|خمس|ست|سبع|ثمان|تسع|عشر|نصف|نص)\s*(?:يوم|ايام|شهر|شهور|اشهر|سنه|سنوات|سنين|عام|اعوام|اسبوع|اسابيع|ساعه|ساعات)|سنتين|عامين|شهرين|يومين|اسبوعين|ساعتين)/.exec(n);
+    return m ? durTextAll(durParts(m[1])) : '';
+}
+function durTextAll(d                                                                  )         {
+    const DW = ['', '', '', 'ثلاثة', 'أربعة', 'خمسة', 'ستة', 'سبعة', 'ثمانية', 'تسعة', 'عشرة'];
+    const HW = ['', '', '', 'ثلاث', 'أربع', 'خمس', 'ست', 'سبع', 'ثماني', 'تسع', 'عشر'];
+    const ym = durText({ years: d.years, months: d.months });
+    const ds = !d.days ? '' : d.days === 1 ? 'يوم واحد' : d.days === 2 ? 'يومين' : d.days <= 10 ? DW[d.days] + ' أيام' : d.days + ' يومًا';
+    const hs = !d.hours ? '' : d.hours === 1 ? 'ساعة واحدة' : d.hours === 2 ? 'ساعتين' : d.hours <= 10 ? HW[d.hours] + ' ساعات' : d.hours + ' ساعة';
+    return [ym, ds, hs].filter(Boolean).join(' و');
+}
+function detectAsset(text        )         {
+    const t = norm(text);
+    if (/(سياره|عربيه|موتوسيكل|دراجه|شاحنه|اتوبيس|تريلا|سيارات)/.test(t)) return 'vehicle';
+    if (/(ارض|فدان|قيراط|مزرعه|حوض)/.test(t)) return 'land';
+    if (/(محل|دكان|مكتب|مخزن|مستودع|مصنع|عياده|معرض|ورشه)/.test(t)) return 'shop';
+    if (/(شقه|فيلا|منزل|بيت|عقار|وحده|بدروم|دوبلكس)/.test(t)) return 'home';
+    if (/(معدات|ماكينه|معدة|جهاز|اثاث|تجهيزات|خط انتاج|موتور|كمبروسر)/.test(t)) return 'equipment';
+    return 'other';
+}
+
+function parse(kind      , rawText        , cls        ) {
     const text = rawText.replace(/[\u064B-\u0652\u0640]/g, '').replace(/(\d{1,2})\.(\d{1,2})\.(\d{4})/g, '$1/$2/$3').replace(/(?<![\u0621-\u064A])([وبل]?(?:ال)?)(مشتريين|مشترين|مشتريان|مشترون)(?![\u0621-\u064A])/g, '$1مشتري');
     const ss = segments(text, kind);
     const find = (re        , skip                      = []) => ss.find((s) => re.test(s.n) && !skip.includes(s));
     const p         = {};
     const sale = kind === 'sale';
+    const veh = cls === 'vehicle';
+    const realty = cls === 'home' || cls === 'shop' || cls === 'land';
+    const movable = !realty;
     p.p1 = sale ? party(text, 'ال?بايع|البائع', 'الطرف الاول') : party(text, 'المؤجر', 'الطرف الاول|المالك');
     p.p2 = sale ? party(text, 'ل?المشتري|للمشتري', 'الطرف الثاني|الطرف التاني') : party(text, 'للمستاجر|ل?المستاجر', 'الطرف الثاني|الطرف التاني');
     const idSeg = (re        ) => { const seg = ss.find((s) => re.test(s.n) && /\d{14}/.test(s.n)); const m = seg ? /\d{14}/.exec(seg.n) : null; return m ? m[0] : ''; };
@@ -431,11 +507,32 @@ function parse(kind      , rawText        ) {
             if (b1 > b2 && !p.id1) p.id1 = idm[0]; else if (b2 > b1 && !p.id2) p.id2 = idm[0];
         }
     }
-    const propSeg = ss.find((s) => !PARTY_START.test(s.n) && /^(?:(?:المبيع|العين|عين|باع|اجر|يبيع|يؤجر)\s+)?(?:ل(?:ه|ها|هم|ك)\s+)?(?:(?:هو|هي)\s+)?(?:ال)?(?:شقه|عقار|ارض|سياره|عربيه|موتوسيكل|محل|وحده|فيلا|مخزن|قطعه|منزل|بيت|دكان|مكتب|عياده|مصنع|مزرعه)(?=\s|$)/.test(s.n));
+    const propSeg = ss.find((s) => !PARTY_START.test(s.n) && /^(?:(?:المبيع|العين|عين|باع|اجر|يبيع|يؤجر)\s+)?(?:ل(?:ه|ها|هم|ك)\s+)?(?:(?:هو|هي)\s+)?(?:ال)?(?:شقه|عقار|ارض|سياره|عربيه|موتوسيكل|دراجه|شاحنه|اتوبيس|تريلا|محل|وحده|فيلا|مخزن|قطعه|منزل|بيت|دكان|مكتب|عياده|مصنع|مزرعه|ماكينه|معدات|معدة|جهاز|اثاث|تجهيزات|موتور|كمبروسر|موبايل|هاتف|تليفون|لابتوب|كمبيوتر|تابلت)(?=\s|$)/.test(s.n));
     p.property = propSeg ? propSeg.o.replace(/^(?:باع|يبيع|بيع|أجّر|أجر|اجر|يؤجر|المبيع|العين المؤجرة|العين)\s*(?:هو|هي)?\s*/, '').trim() : '';
-    const penSeg = sale ? find(/(شرط\s+(?:ال)?جزائي|تعويض\s+(?:ال)?اتفاقي)/) : undefined;
+    const penSeg = find(/(شرط\s+(?:ال)?جزائي|تعويض\s+(?:ال)?اتفاقي)/);
     const priceSeg = find(/^(?:الثمن|ثمن|ثمنه|ثمنها|سعرها|سعره|بمبلغ|بثمن|بسعر|سعر|مبلغ)/) || find(/جنيه/, [find(/^(?:الاجره|اجره|اجرتها|بااجره|ايجار|ايجارها|الايجار|بايجار|بالايجار)/), penSeg]);
-    if (sale) {
+    if (sale && movable) {
+        p.price = priceSeg ? money(priceSeg) : '';
+        if (priceSeg && !p.price) { const nx = ss[ss.indexOf(priceSeg) + 1]; if (nx && nx !== penSeg && !/^(?:الشرط|المقدم|الباقي|التسليم|تسليم)/.test(nx.n)) p.price = money(nx); }
+        const payRe = /(مقدم|قسط|اقساط|تقسيط|عند التسليم|شيك|كاش|نقدا|نقدي|دفعه|دفع|يدفع|يسدد|سداد|الباقي)/;
+        const pays = ss.filter((s) => payRe.test(s.n) && s !== priceSeg && s !== penSeg && !/^(?:التسليم|تسليم)/.test(s.n));
+        const nAll = norm(text);
+        p.penalty = penSeg ? money(penSeg) : '';
+        p.multi = /(المشتريين|المشترين|المشتريان|المشتريات|المشترون)/.test(norm(rawText)) ? 'y' : '';
+        p.equal = /(بالتساوي|مناصفه|بالتساوى)/.test(nAll) ? 'y' : '';
+        p.prelim = /ابتدائي/.test(nAll) ? 'y' : '';
+        p.final = /نهائي/.test(nAll) ? 'y' : '';
+        p.payment = pays.map((s) => s.o).join('، ');
+        p.inst = /(قسط|اقساط|تقسيط|مقدم|الباقي|مؤجل)/.test(norm(p.payment)) ? 'y' : '';
+        p.fullcash = !p.inst && /(كامل|كاش|نقدا|خالص|بمجلس العقد|عند التوقيع)/.test(norm(p.payment + ' ' + text)) ? 'y' : '';
+        const dels = ss.filter((x) => /^(?:التسليم|تسليم)|يستلم|استلام/.test(x.n) && !pays.includes(x)); const del = dels.sort((x, y) => y.o.length - x.o.length)[0];
+        p.delivery = del && !hasBadDate(del.o) ? del.o : '';
+        const pr = find(/(رخصه|عقد شراء|فاتوره|مستند|عقد تملك|ملكيه|حكم|ميراث)/);
+        p.proof = pr ? fixText(pr.o).replace(/^(?:ومعاه|معاه|معايا|عنده|عندها|يحمل|حامل|بحوزته)\s+/, '') : '';
+        const od = find(/(عداد|كيلومتر|كيلو)/); p.odo = od ? fmtN(fixText(od.o)).replace(/^قراء[ةه]?\s*(?:ال)?عداد\s*/, '') : '';
+        const ins = find(/(تامين شامل|ضد الغير|تامين علي السياره|وثيقه تامين|تامين السياره)/); p.insurance = ins ? fixText(ins.o) : '';
+        const fi = find(/(مخالفات|مخالفه|غرامات)/); p.fines = fi ? fixText(fi.o) : '';
+    } else if (sale) {
         p.price = priceSeg ? money(priceSeg) : '';
         if (priceSeg && !p.price) { const nx = ss[ss.indexOf(priceSeg) + 1]; if (nx && nx !== penSeg && !/^(?:الشرط|المقدم|الباقي|التسليم|تسليم)/.test(nx.n)) p.price = money(nx); }
         const payRe = /(مقدم|قسط|اقساط|تقسيط|عند التسليم|شيك|كاش|نقدا|نقدي|دفعه|دفع|يدفع|يسدد|سداد|الباقي)/;
@@ -453,22 +550,62 @@ function parse(kind      , rawText        ) {
         p.delivery = del && !hasBadDate(del.o) ? del.o : '';
         const pr = find(/(عقد تملك|عقد سابق|مسجل|شهر عقاري|مستند|رخصه|حكم|ميراث|وراثه|اعلام وراثه|ملكيه.*(عقد|مسجل|حكم|ميراث|رخصه|مستند))/);
         p.proof = pr ? fixText(pr.o).replace(/^العقد\s+/, 'عقد ').replace(/^ملكية(?:\s+\S+)?\s+ب(?=\S)/, '') : '';
+    } else if (veh) {
+        const nt = norm(text);
+        const rent = find(/^(?:الاجره|اجره|ايجار|الايجار|بايجار|بالايجار|قيمه الايجار)/) || find(/(الاجره|اجره|ايجار|الايجار)/, [propSeg, penSeg]) || find(/^(?:بمبلغ|مبلغ|بقيمه)/);
+        p.rent = rent ? money(rent) : '';
+        const rn = rent ? rent.n : '';
+        p.rateUnit = /(?:في|كل)\s*(?:ال)?ساعه|بالساعه|للساعه|ساعه|ساعات/.test(rn) ? 'في الساعة'
+            : /يومي|(?:في|كل)\s*(?:ال)?يوم|لليوم|باليوم|يوم/.test(rn) ? 'يوميًا'
+            : /اسبوعي|(?:في|كل)\s*(?:ال)?اسبوع|بالاسبوع/.test(rn) ? 'أسبوعيًا'
+            : /شهري|(?:في|كل)\s*(?:ال)?شهر|بالشهر|للشهر/.test(rn) ? 'شهريًا'
+            : /سنوي|(?:في|كل)\s*(?:ال)?سنه|بالسنه|للسنه/.test(rn) ? 'سنويًا' : '';
+        if (p.rent && p.rateUnit) p.rent += ' ' + p.rateUnit;
+        const pm = rent ? /(?:ب?تدفع|ب?تسدد|يسدد|يدفع|مقدما|مقدم|عند الاستلام|عند التسليم|عند الرد)[^،]*/.exec(rent.o.replace(/ب(?=تدفع|تسدد)/, '')) : null;
+        p.rentPay = pm ? pm[0] : '';
+        const dur = find(/^(?:لمده|(?:ال)?مده|مده الايجار)/) || find(/(يوم|ايام|ساعه|ساعات|اسبوع|اسابيع)/, [rent, penSeg]) || (propSeg && /(يوم|ايام|ساعه|ساعات|اسبوع|اسابيع)/.test(propSeg.n) ? propSeg : undefined);
+        const dd = dur ? durParts(dur.n) : { years: 0, months: 0, days: 0, hours: 0 };
+        p.duration = durTextAll(dd) || durFromText(text);
+        p.start = dateOf(dur && /(من|تبدا|بدايه|اعتبارا|ابتداء)/.test(dur.n) ? dur.o : '') || dateOf((ss.find((s) => /(تبدا|بدايه|اعتبارا|ابتداء|^من\s)/.test(s.n) && dateOf(s.o)) || { o: '' }).o) || (dur ? dateOf(dur.o) : '');
+        const endS = ss.find((s) => /(تنتهي|ينتهي|حتي|لحد)/.test(s.n) && dateOf(s.o));
+        p.endDate = endS ? dateOf(endS.o) : (dur ? dateOf((/(?:وتنتهي|تنتهي|حتي|لحد)\s*(?:في\s*)?([^،]+)/.exec(dur.o) || [''])[1] || '') : '');
+        p.endRel = '';
+        if (dd.hours && !dd.days && !dd.months && !dd.years) p.endRel = 'بعد ' + p.duration + ' من الاستلام';
+        if (!p.endDate && !p.endRel && p.start && dur) { const ed0 = addDur(p.start, dd); if (ed0) p.endDate = ed0; }
+        const insS = find(/(تامين شامل|ضد الغير|تامين علي السياره|وثيقه تامين|تامين اجباري|تامين السياره)/);
+        p.insurance = insS ? fixText(insS.o) : '';
+        const dep = find(/^(?:ال)?تامين/, [insS]) || find(/^(?:ال)?وديعه/, [insS]) || find(/(وديعه)/, [insS]);
+        p.deposit = dep ? dep.o : ''; p.depositAmt = dep ? money(dep) : '';
+        const fu = find(/(بنزين|وقود|سولار)/); p.fuel = fu ? fixText(fu.o) : '';
+        const fi = find(/(مخالفات|مخالفه|غرامات|غرامه)/); p.fines = fi ? fixText(fi.o) : '';
+        const li = find(/(رخصه قياده|رخصه السواق|رخصه القياده)/);
+        p.licence = li ? ((/\d{4,}/.exec(D(li.o)) || [])[0] ? 'رقم الرخصة ' + /\d{4,}/.exec(D(li.o))[0] : fixText(li.o).replace(/^(?:معاه|معايا|عنده|عندها|يحمل|حامل)\s+/, '')) : '';
+        const km = find(/(عداد|كيلومتر|كيلو|مسافه)/); p.km = km ? fmtN(fixText(km.o)).replace(/^قراء[ةه]?\s*(?:ال)?عداد\s*/, '') : '';
+        const late = find(/(تاخير|متاخر|يتاخر)/); p.late = late ? (money(late) || fixText(late.o)) : '';
+        const term = find(/(فسخ|الغاء|يلغي)/); p.termination = term ? fixText(term.o) : '';
+        p.penalty = penSeg ? money(penSeg) : '';
+        p.use = /(نقل باجر|نقل ركاب|تاكسي|اوبر|تجاري)/.test(nt) ? 'commercial' : 'personal';
+        p.admin = /(وكيل|ولي|وصي|حارس|مدير|ناظر)/.test(nt) ? 'yes' : '';
     } else {
         const nt = norm(text);
         p.use = /(سكني|سكنيه|للسكن)/.test(nt) ? 'سكني' : /(اداري|مكتب)/.test(nt) ? 'إداري' : /عياده/.test(nt) ? 'عيادة' : /(تجاري|محل)/.test(nt) ? 'تجاري' : '';
         const rent = find(/^(?:الاجره|اجره|اجرتها|بااجره|ايجار|ايجارها|الايجار|بايجار|بالايجار)/) || find(/(الاجره|اجره|اجرتها|ايجار)/, [propSeg]) || find(/^(?:بمبلغ|مبلغ|بقيمه)/);
         p.rent = rent ? money(rent) : '';
         const rn = rent ? rent.n : '';
-        if (p.rent && /شهري|كل شهر|في الشهر|بالشهر|للشهر/.test(rn)) p.rent += ' شهريًا';
+        if (p.rent && /(?:في|كل)\s*(?:ال)?ساعه|بالساعه|للساعه|ساعه|ساعات/.test(rn)) p.rent += ' في الساعة';
+        else if (p.rent && /يومي|(?:في|كل)\s*(?:ال)?يوم|لليوم|باليوم/.test(rn)) p.rent += ' يوميًا';
+        else if (p.rent && /اسبوعي|(?:في|كل)\s*(?:ال)?اسبوع|بالاسبوع/.test(rn)) p.rent += ' أسبوعيًا';
+        else if (p.rent && /شهري|كل شهر|في الشهر|بالشهر|للشهر/.test(rn)) p.rent += ' شهريًا';
         else if (p.rent && /سنوي|كل سنه|في السنه|بالسنه|للسنه/.test(rn)) p.rent += ' سنويًا';
         const pm = rent ? /(?:ب?تدفع|ب?تسدد|يسدد|يدفع|يدفعها|مقدما|اول كل|اخر كل)[^،]*/.exec(rent.o.replace(/ب(?=تدفع|تسدد)/, '')) : null;
         p.rentPay = pm ? pm[0] : '';
         const DUR_RE = /(سنتين|سنه|سنوات|سنين|عامين|اشهر|شهور|شهرين|شهر\s)/;
         const dur = find(/^(?:لمده|(?:ال)?مده)/) || find(DUR_RE, [rent, propSeg]) || (propSeg && DUR_RE.test(propSeg.n) ? propSeg : undefined);
-        const dd = dur ? durOf(dur.n) : { years: 0, months: 0 };
-        p.duration = dur ? (durText(dd) || dur.o.replace(/^(?:لمدة|مدة العقد|مدة)\s*/, '')) : '';
+        const dd = dur ? durParts(dur.n) : { years: 0, months: 0, days: 0, hours: 0 };
+        p.duration = dur ? (durTextAll(dd) || durFromText(text) || (/[0-9]|(?:يوم|شهر|سنه|عام|اسبوع|ساعه)/.test(dur.o) ? dur.o.replace(/^(?:لمدة|مدة العقد|مدة)\s*/, '') : '')) : durFromText(text);
         p.start = dateOf(dur && /(من|تبدا|تبدأ|بدايه|اعتبارا|ابتداء)/.test(dur.n) ? dur.o : '') || dateOf((ss.find((s) => /(تبدا|بدايه|اعتبارا|ابتداء|^من\s)/.test(s.n) && dateOf(s.o)) || { o: '' }).o) || (dur ? dateOf(dur.o) : '');
         const dep = find(/^(?:ال)?تامين/); p.deposit = dep ? dep.o : ''; p.depositAmt = dep ? money(dep) : '';
+        p.penalty = penSeg ? money(penSeg) : '';
         const inc = find(/^(?:ال)?زياده/);
         const pc = inc ? /(\d+(?:\.\d+)?)\s*(?:%|(?:ب|في\s+)(?:ال)?(?:مايه|مائه|ميه|مئه))/.exec(D(inc.n)) : null;
         p.increase = inc ? (pc ? 'تزداد الأجرة زيادة ' + (/(سنوي|كل سنه)/.test(inc.n) ? 'سنوية ' : '') + 'بنسبة ' + pc[1] + '%' : inc.o) : '';
@@ -483,7 +620,7 @@ function parse(kind      , rawText        ) {
     return p;
 }
 
-const propOk = (v        ) => !!v && /(\d|\sفي\s|شارع|بمدينه|بحي|بمنطقه|رقم|مساحه|مركز|قريه|موديل|لوحات|بالدور|بالعقار)/.test(norm(v));
+const propOk = (v        ) => !!v && /(\d|\sفي\s|شارع|بمدينه|بحي|بمنطقه|رقم|مساحه|مركز|قريه|موديل|لوحات|بالدور|بالعقار|طريق|فدان|قيراط|حوض|كيلو|ماركه)/.test(norm(v));
 
 const GOV = new Set(['01', '02', '03', '04', '11', '12', '13', '14', '15', '16', '17', '18', '19', '21', '22', '23', '24', '25', '26', '27', '28', '29', '31', '32', '33', '34', '35', '88']);
 function idBad(id        )          {
@@ -491,13 +628,27 @@ function idBad(id        )          {
     const mm = Number(id.slice(3, 5)), dd = Number(id.slice(5, 7));
     return !/^[23]/.test(id) || mm < 1 || mm > 12 || dd < 1 || dd > 31 || !GOV.has(id.slice(7, 9));
 }
-function runChecks(kind      , p        )          {
+function runChecks(kind      , p        , cls        )          {
     const c          = [];
+    const veh = cls === 'vehicle';
+    const realty = cls === 'home' || cls === 'shop' || cls === 'land';
+    const movable = !realty;
     c.push({ ok: !!p.p1 && !!p.p2, name: 'اسم الطرفين', detail: kind === 'sale' ? 'البائع والمشتري' : 'المؤجر والمستأجر' });
     c.push({ ok: !!p.id1 && !!p.id2, name: 'الرقم القومي للطرفين', detail: 'رقم من 14 رقمًا لكل طرف، في جملة الطرف نفسه. وجدت ' + ((p.id1 ? 1 : 0) + (p.id2 ? 1 : 0)) + ' من 2.' });
     if (p.id1 && p.id1 === p.id2) c.push({ ok: false, name: 'تنبيه: نفس الرقم القومي للطرفين', detail: 'الرقم القومي للطرفين متطابق. غالبًا تكرار بالخطأ. راجع كل رقم من البطاقة.' });
     if (p.id1 || p.id2) { const bad = [p.id1, p.id2].filter(idBad).length; if (bad) c.push({ ok: false, name: 'تنبيه: صيغة الرقم القومي', detail: 'رقم قومي واحد على الأقل لا تطابق صيغته (القرن، الشهر، اليوم، كود المحافظة). غالبًا خطأ في النطق أو الكتابة. راجعه من البطاقة.' }); }
-    if (kind === 'sale') {
+    if (kind === 'sale' && movable) {
+        c.push({ ok: propOk(p.property), name: 'وصف المبيع', detail: 'بيان المبيع وأوصافه الأساسية بما يمكّن من تعرّفه: النوع والماركة والموديل أو الرقم التسلسلي.', art: 'م 419' });
+        c.push({ ok: !!p.price, name: 'الثمن بالنقود', detail: 'اذكر الثمن بالأرقام وبعده كلمة جنيه.', art: 'م 418' });
+        c.push({ ok: !!p.payment || !!p.fullcash, name: 'طريقة السداد', detail: 'نقدًا عند التسليم، أو مقدم وأقساط.' });
+        c.push({ ok: !!p.delivery, name: 'التسليم', detail: 'موعد ومكان التسليم. التزام البائع بالتسليم أصلي ولو لم يُذكر.', art: 'م 431' });
+        c.push({ ok: !!p.proof, name: veh ? 'مستند الملكية' : 'إثبات ملكية المبيع', detail: veh ? 'الفاتورة أو عقد الشراء أو الرخصة التي تثبت ملكية البائع.' : 'الفاتورة أو عقد الشراء أو الضمان الذي يثبت ملكية البائع.', art: 'م 428' });
+        if (veh) c.push({ ok: !!p.odo, name: 'قراءة العداد', detail: 'قراءة العداد وقت البيع تحمي الطرفين من نزاع على المسافة.' });
+        if (veh) c.push({ ok: true, info: true, name: 'نقل الملكية في المرور', detail: 'أضفنا بندًا يلزم الطرفين بنقل الملكية في إدارة المرور وتسليم الرخصة واللوحات والمستندات. ولو كانت السيارة مرهونة أو عليها حجز راجع ذلك قبل التوقيع.' });
+        c.push({ ok: !!p.penalty, name: 'الشرط الجزائي', detail: 'المبلغ الذي يدفعه الطرف المخل بأي شرط. اذكر المبلغ بالأرقام وبعده كلمة جنيه.', art: 'م 223' });
+        c.push({ ok: true, info: true, name: 'ملاحظة على الشرط الجزائي', detail: 'للقاضي أن يخفض التعويض الاتفاقي إذا كان مبالغًا فيه كثيرًا أو نُفذ جزء من الالتزام، ولا يستحق إن أثبت المدين أن الدائن لم يتضرر.', art: 'م 224' });
+        c.push({ ok: true, info: true, name: 'بنود أضفناها افتراضيًا', detail: 'خلو المبيع من الحقوق، والضمان، وعدم العدول، والموطن المختار. راجعها أو احذف ما لا يناسبكما.' });
+    } else if (kind === 'sale') {
         c.push({ ok: propOk(p.property), name: 'وصف المبيع', detail: 'يجب أن يشمل العقد بيانًا للمبيع وأوصافه الأساسية بما يمكّن من تعرّفه: العنوان أو الرقم أو المساحة أو المواصفات.', art: 'م 419' });
         c.push({ ok: !!p.price, name: 'الثمن بالنقود', detail: 'البيع مقابل ثمن نقدي. اذكر الثمن بالأرقام وبعده كلمة جنيه.', art: 'م 418' });
         c.push({ ok: !!p.payment, name: 'طريقة السداد', detail: 'مقدم، أقساط، أو عند التسليم.' });
@@ -510,6 +661,36 @@ function runChecks(kind      , p        )          {
         if (p.multi) c.push({ ok: true, info: true, name: 'أكثر من مشترٍ', detail: 'أضفنا سطرًا لبيانات المشتري الآخر. اذكر حصة كل مشترٍ في المبيع. لا يُضاف بند «بالتساوي» وعدم التصرف المنفرد إلا إذا ذكرته في كلامك.' });
         if (p.fullcash) c.push({ ok: true, info: true, name: 'الدفع نقدًا', detail: 'احتفظ بإيصال أو إثبات للسداد. توقيع البائع على العقد مخالصة بالثمن، لكن الأفضل أن يذكر العقد كيف دُفع.' });
         if (/(قسط|اقساط|تقسيط|مؤجل|الباقي)/.test(norm(p.payment || ''))) c.push({ ok: true, info: true, name: 'الثمن المؤجل أو المقسط', detail: 'يجوز للبائع أن يشترط ألا تنتقل الملكية إلا بعد سداد الثمن كله ولو سلّم المبيع. لم يُضَف تلقائيًا لأنه اتفاق بينكما. إن كنتما متفقين عليه فأضفه إلى المسودة بنفسك.', art: 'م 430' });
+    } else if (veh) {
+        const co = /^(?:ال)?(?:شركه|مؤسسه|مكتب|بنك|جمعيه|مجموعه)/;
+        if (co.test(norm(p.p1 || '')) || co.test(norm(p.p2 || ''))) {
+            const ic = c.find((x) => x.name === 'الرقم القومي للطرفين');
+            if (ic && !ic.ok) { ic.ok = true; ic.info = true; ic.detail = 'أحد الطرفين شركة وليس له رقم قومي. اذكر السجل التجاري والرقم الضريبي وبيانات الممثل القانوني. ' + ic.detail; }
+        }
+        c.push({ ok: propOk(p.property), name: 'وصف السيارة', detail: 'اذكر الماركة والموديل ورقم اللوحات بما يميّز السيارة.', art: 'م 558' });
+        c.push({ ok: !!p.duration, name: 'مدة الإيجار', detail: 'المدة بالأيام أو الساعات: 3 أيام، أو 5 ساعات.', art: 'م 558' });
+        c.push({ ok: !!p.start, name: 'تاريخ وساعة الاستلام', detail: 'اذكر تاريخ الاستلام بالأرقام، ومعه الساعة إن أمكن.' });
+        c.push({ ok: !!p.rent, name: 'الأجرة', detail: 'اذكر القيمة بالأرقام وبعدها كلمة جنيه.', art: 'م 558' });
+        c.push({ ok: !!p.rateUnit, name: 'نوع الأجرة (يومي أو بالساعة)', detail: 'إيجار السيارة عادة يومي أو بالساعة. اذكر «1500 جنيه في اليوم» أو «200 جنيه في الساعة»، وإلا تُقرأ الأجرة كمبلغ واحد.' });
+        c.push({ ok: !!p.insurance, name: 'التأمين على السيارة', detail: 'حدد نوع التأمين (شامل أو ضد الغير) ومن يتحمل قيمة التحمل عند الحادث. وديعة التأمين ليست تأمينًا على السيارة.' });
+        c.push({ ok: !!p.fuel, name: 'الوقود', detail: 'من يتحمل البنزين، وهل ترد السيارة بنفس كمية الوقود.' });
+        c.push({ ok: !!p.fines, name: 'المخالفات والغرامات', detail: 'من يتحمل مخالفات المرور عن مدة الإيجار، وغالبًا المستأجر.' });
+        c.push({ ok: !!p.licence, name: 'رخصة قيادة المستأجر', detail: 'رقم الرخصة وسريانها ومن يقود السيارة. القيادة بدون رخصة مخالفة لقانون المرور.' });
+        c.push({ ok: !!p.km, name: 'عداد السيارة والمسافة', detail: 'قراءة العداد عند التسليم، والحد المسموح من الكيلومترات وسعر الزيادة إن وجد.' });
+        c.push({ ok: !!p.penalty, name: 'الشرط الجزائي', detail: 'المبلغ الذي يدفعه الطرف المخل بأي شرط. اذكر المبلغ بالأرقام وبعده كلمة جنيه.', art: 'م 223' });
+        c.push({ ok: true, info: true, name: 'ملاحظة على الشرط الجزائي', detail: 'للقاضي أن يخفض التعويض الاتفاقي إذا كان مبالغًا فيه كثيرًا أو نُفذ جزء من الالتزام، ولا يستحق إن أثبت المدين أن الدائن لم يتضرر.', art: 'م 224' });
+        c.push({ ok: !!p.deposit, name: 'وديعة التأمين', detail: 'اختياري. تُرد عند إعادة السيارة بعد خصم المستحقات. اتركها إن لم يُتفق عليها.' });
+        c.push({ ok: !!p.late, name: 'التأخير في الرد', detail: 'أجر إضافي عن كل يوم أو ساعة تأخير في إعادة السيارة.' });
+        c.push({ ok: true, info: true, name: 'نطاق المسودة', detail: 'إيجار السيارة عقد إيجار يخضع للقانون المدني (م 558 وما بعدها)، مع مراعاة قواعد قانون المرور والتأمين الإجباري. المسودة لا تحل محل وثيقة التأمين ولا تسجيل المركبة.' });
+    } else if (!realty) {
+        c.push({ ok: propOk(p.property), name: 'وصف الشيء المؤجر', detail: 'اذكر نوع الشيء ومواصفاته التي تميّزه، أو رقمه التسلسلي.', art: 'م 558' });
+        c.push({ ok: !!p.duration, name: 'مدة الإيجار', detail: 'المدة بالأيام أو الأشهر أو السنوات.', art: 'م 558' });
+        c.push({ ok: !!p.start, name: 'تاريخ بدء الإيجار', detail: 'اذكر تاريخ البدء بالأرقام.' });
+        c.push({ ok: !!p.rent, name: 'الأجرة', detail: 'اذكر القيمة بالأرقام وبعدها كلمة جنيه، وحدد إن كانت يومية أو شهرية.', art: 'م 558' });
+        c.push({ ok: true, info: true, name: 'الصيانة والتشغيل', detail: 'المسودة تجعل الإصلاحات الضرورية على المؤجر والمحافظة على المستأجر (م 567 و583). عدّل البند لو اتفقتما على غير ذلك.' });
+        c.push({ ok: !!p.penalty, name: 'الشرط الجزائي', detail: 'المبلغ الذي يدفعه الطرف المخل بأي شرط. اذكر المبلغ بالأرقام وبعده كلمة جنيه.', art: 'م 223' });
+        c.push({ ok: true, info: true, name: 'ملاحظة على الشرط الجزائي', detail: 'للقاضي أن يخفض التعويض الاتفاقي إذا كان مبالغًا فيه كثيرًا أو نُفذ جزء من الالتزام، ولا يستحق إن أثبت المدين أن الدائن لم يتضرر.', art: 'م 224' });
+        c.push({ ok: true, info: true, name: 'نطاق المسودة', detail: 'إيجار الأشياء يخضع للقانون المدني (م 558 وما بعدها). ولو الشيء مسجّل أو مرهون فراجع التأمين والرهن قبل التوقيع.' });
     } else {
         c.push({ ok: propOk(p.property), name: 'تعيين العين المؤجرة', detail: 'العقد على شيء معين: اذكر العنوان أو رقم الوحدة أو المساحة.', art: 'م 558' });
         c.push({ ok: !!p.duration, name: 'مدة الإيجار', detail: 'الإيجار لمدة معينة.', art: 'م 558' });
@@ -519,6 +700,8 @@ function runChecks(kind      , p        )          {
         c.push({ ok: !!p.utilities, name: 'من يتحمل المرافق', detail: 'الكهرباء والمياه والغاز. لو لم تتفقا على شيء: الكهرباء والغاز وعداد المياه على المستأجر، والضرائب على المؤجر.', art: 'م 567' });
         if (!p.duration) c.push({ ok: true, info: true, name: 'لو المدة غير محددة', detail: 'الإيجار بلا مدة يعتبر لفترة دفع الأجرة (شهر مثلًا)، وينتهي بالتنبيه بالإخلاء في المواعيد القانونية.', art: 'م 563' });
         c.push({ ok: true, info: true, name: 'التنازل والتأجير من الباطن', detail: 'القانون يجيزه ما لم يُتفق على المنع. المسودة تمنعه إلا بموافقة كتابية من المؤجر. عدّل البند إن اتفقتما على غير ذلك.', art: 'م 593' });
+        c.push({ ok: !!p.penalty, name: 'الشرط الجزائي', detail: 'المبلغ الذي يدفعه الطرف المخل بأي شرط من شروط العقد. اذكر المبلغ بالأرقام وبعده كلمة جنيه، مثل: الشرط الجزائي 20000 جنيه.', art: 'م 223' });
+        c.push({ ok: true, info: true, name: 'ملاحظة على الشرط الجزائي', detail: 'للقاضي أن يخفض التعويض الاتفاقي إذا كان مبالغًا فيه كثيرًا أو نُفذ جزء من الالتزام، ولا يستحق إن أثبت المدين أن الدائن لم يتضرر.', art: 'م 224' });
         if (/(زراعي|فدان|فدادين|قيراط)/.test(norm(p.property || ''))) c.push({ ok: false, name: 'تنبيه: أرض زراعية', detail: 'إيجار الأراضي الزراعية له قانون خاص يختلف عن القانون المدني في المدة والأجرة والإنهاء. هذه المسودة لا تغطيه. اعرضها على محامٍ قبل التوقيع.' });
         c.push({ ok: true, info: true, name: 'نطاق المسودة', detail: 'للعقود الجديدة التي تسري عليها أحكام القانون المدني وما يتفق عليه الطرفان (بعد ق 4 لسنة 1996). الإيجار القديم الخاضع للقانونين 49/1977 و136/1981 له أحكام خاصة (آخرها ق 164 لسنة 2025)، والمسودة لا تغطيه.' });
         c.push({ ok: !!p.deposit, name: 'التأمين', detail: 'اختياري. اتركه إن لم يُتفق عليه.' });
@@ -533,13 +716,19 @@ const M = (label        , v         ) => (v ? v : '\u0001' + label + '\u0002');
 const ORD = ['الأول', 'الثاني', 'الثالث', 'الرابع', 'الخامس', 'السادس', 'السابع', 'الثامن', 'التاسع', 'العاشر', 'الحادي عشر', 'الثاني عشر', 'الثالث عشر', 'الرابع عشر', 'الخامس عشر', 'السادس عشر', 'السابع عشر', 'الثامن عشر', 'التاسع عشر', 'العشرون', 'الحادي والعشرون'];
 const USE_AR                         = { 'سكني': 'السكني', 'إداري': 'الإداري', 'تجاري': 'التجاري', 'عيادة': 'المهني (عيادة)' };
 
-function build(kind      , p        )           {
+function build(kind      , p        , cls        )           {
     const L           = [];
     const clauses                     = [];
     const sale = kind === 'sale';
-    const KW = /(شقه|شقة|محل|دكان|ارض|أرض|منزل|بيت|فيلا|وحده|وحدة|مخزن|مكتب|عياده|عيادة|سياره|سيارة|عقار|بدروم)/.exec(norm(p.property || ''));
-    const kwAr                         = { شقه: 'شقة', دكان: 'محل', ارض: 'أرض', وحده: 'وحدة', عياده: 'عيادة', سياره: 'سيارة' };
-    L.push(sale ? '# عقد بيع' + (kind === 'sale' && KW ? ' ' + (kwAr[KW[1]] || KW[1]) : '') + (p.prelim ? ' ابتدائي' : p.final ? ' نهائي' : '') : '# عقد إيجار');
+    const veh = cls === 'vehicle';
+    const realty = cls === 'home' || cls === 'shop' || cls === 'land';
+    const movable = !realty;
+    const KW = /(شقه|شقة|محل|دكان|ارض|أرض|منزل|بيت|فيلا|وحده|وحدة|مخزن|مكتب|عياده|عيادة|سياره|سيارة|عقار|بدروم|ماكينه|جهاز|معدات|اثاث|تجهيزات|موبايل|هاتف|لابتوب)/.exec(norm(p.property || ''));
+    const kwAr                         = { شقه: 'شقة', دكان: 'محل', ارض: 'أرض', وحده: 'وحدة', عياده: 'عيادة', سياره: 'سيارة', ماكينه: 'ماكينة', جهاز: 'جهاز', معدات: 'معدات', اثاث: 'أثاث', تجهيزات: 'تجهيزات', موبايل: 'موبايل', هاتف: 'هاتف', لابتوب: 'لابتوب' };
+    const assetName = cls === 'vehicle' ? 'سيارة' : cls === 'equipment' ? 'معدات' : cls === 'other' ? '' : (KW ? (kwAr[KW[1]] || KW[1]) : '');
+    L.push(sale
+        ? '# عقد بيع' + (assetName ? ' ' + assetName : '') + (p.prelim ? ' ابتدائي' : p.final ? ' نهائي' : '')
+        : '# عقد إيجار' + (cls === 'vehicle' ? ' سيارة' : cls === 'equipment' ? (assetName ? ' ' + assetName : ' معدات') : ''));
     L.push('تحرر هذا العقد في يوم ' + M('التاريخ') + ' بمدينة ' + M('المدينة') + '، بين كل من:');
     const partyLine = (ord        , name        , f        , m        , id        , ad        , nameL        , idL        , adL        , role        , no        ) => {
         const co = !titleOf(name, f, m) && !!name;
@@ -551,7 +740,27 @@ function build(kind      , p        )           {
     if (sale && p.multi) L.push('ثالثًا: ' + M('اسم وبيانات المشتري الآخر (الرقم القومي والعنوان)') + '. ويسمى (الطرف الثاني – مشترٍ).');
     L.push(sale ? 'وبعد أن أقر الطرفان بأهليتهما القانونية للتعاقد، وبأنهما غير خاضعين للحراسة ولا ممنوعين من التصرف، اتفقا على ما يلي:' : 'وبعد أن أقر الطرفان بأهليتهما القانونية للتعاقد، اتفقا على ما يلي:');
     clauses.push(['التمهيد', 'يعتبر التمهيد السابق جزءًا لا يتجزأ من هذا العقد.']);
-    if (sale) {
+    if (sale && movable) {
+        clauses[0][1] = 'يعتبر التمهيد السابق جزءًا لا يتجزأ من هذا العقد ومكملًا ومتممًا له.';
+        clauses.push(['المبيع', 'باع وأسقط وتنازل الطرف الأول بكافة الضمانات الفعلية والقانونية إلى الطرف الثاني المبيع الآتي وصفه: ' + M('وصف المبيع', p.property) + '.']);
+        clauses.push(['الثمن', 'اتفق الطرفان على أن ثمن البيع هو ' + M('الثمن', withWords(p.price)) + '.' + (p.fullcash && p.payment ? ' ويعتبر توقيع الطرف الأول على هذا العقد مخالصة نهائية بالثمن.' : '')]);
+        clauses.push(['السداد', p.payment ? M('طريقة السداد', fmtN(p.payment)) + '.' : 'سدد الطرف الثاني الثمن كاملًا عند التوقيع، ويعتبر توقيع الطرف الأول على هذا العقد مخالصة نهائية بالثمن.']);
+        if (/(قسط|اقساط|أقساط|تقسيط)/.test(norm(p.payment))) clauses.push(['الأقساط', 'يسدد الطرف الثاني الثمن المؤجل على أقساط، قيمة القسط ' + M('قيمة القسط') + '، ويستحق أولها في ' + M('تاريخ أول قسط') + '، ويستحق كل قسط تالٍ في ' + M('موعد استحقاق باقي الأقساط') + '. وفي حالة التأخر في سداد أي قسط: ' + M('أثر التأخر في السداد') + '.']);
+        clauses.push(['التسليم', M('موعد ومكان التسليم', p.delivery) + '. ويقر الطرف الثاني بأنه عاين المبيع وقبله بحالته، دون إخلال بضمان العيوب التي لا يمكن كشفها بالفحص المعتاد (م 447 مدني).']);
+        clauses.push(['الملكية', 'يقر الطرف الأول بأنه يملك المبيع ملكية تامة بموجب ' + M(veh ? 'مستند الملكية' : 'إثبات ملكية المبيع', p.proof) + '، وأنه خالٍ من أي حقوق للغير أو رهون أو حجوزات، ويلتزم بما يلزم لنقل الملكية إلى الطرف الثاني (م 428 مدني).']);
+        if (veh) {
+            clauses.push(['حالة السيارة والعداد', 'قراءة العداد وقت البيع ' + M('قراءة العداد', p.odo) + '، ويقر الطرف الثاني بأنه عاين السيارة وقبلها بحالتها.']);
+            clauses.push(['نقل الملكية في المرور', 'يلتزم الطرفان بإتمام نقل ملكية السيارة في إدارة المرور المختصة، وتسليم رخصة السيارة ولوحاتها ومفاتيحها ومستنداتها، ويتحمل الطرف الثاني رسوم النقل والترخيص ما لم يتفق على غير ذلك.']);
+            clauses.push(['المخالفات السابقة', M('مخالفات ورسوم سابقة على البيع', p.fines) + '. ويتحمل الطرف الأول مخالفات المرور والرسوم المستحقة عن المدة السابقة على التسليم، ويتحمل الطرف الثاني ما يستحق بعده.']);
+            clauses.push(['التأمين', M('التأمين على السيارة', p.insurance) + '.']);
+        } else {
+            clauses.push(['الضمان', 'يضمن الطرف الأول للطرف الثاني عدم التعرض له في الانتفاع بالمبيع (م 439 مدني)، ويضمن العيوب الخفية التي تنقص من قيمة المبيع أو من نفعه (م 447 مدني).']);
+            clauses.push(['الملحقات', 'يلتزم الطرف الأول بتسليم الطرف الثاني كل ملحقات المبيع وقطع غياره ومستنداته إن وجدت.']);
+        }
+        clauses.push(['الشرط الجزائي', 'اتفق الطرفان على شرط جزائي قدره ' + M('قيمة الشرط الجزائي', withWords(p.penalty)) + '، يدفعه الطرف الذي يخل بأي شرط من شروط هذا العقد للطرف الآخر (م 223 و224 مدني).']);
+        clauses.push(['عدم العدول', 'لا يحق لأي من الطرفين العدول عن هذا البيع أو الرجوع فيه، ويسري هذا العقد على الطرفين وعلى الخلف العام والخاص لكل منهما.']);
+        clauses.push(['الموطن المختار', 'يقر كل من الطرفين بأن عنوانه المذكور بصدر هذا العقد هو موطنه المختار، وتصح مراسلته عليه قانونًا ما لم يخطر الطرف الآخر بتغييره بخطاب مسجل بعلم الوصول أو بإنذار على يد محضر.']);
+    } else if (sale) {
         const re = isRealEstate(p.property);
         clauses[0][1] = 'يعتبر التمهيد السابق جزءًا لا يتجزأ من هذا العقد ومكملًا ومتممًا له.';
         clauses.push(['المبيع', 'باع وأسقط وتنازل الطرف الأول بكافة الضمانات الفعلية والقانونية إلى الطرف الثاني المبيع الآتي وصفه: ' + M('وصف المبيع', p.property) + '.']);
@@ -570,6 +779,39 @@ function build(kind      , p        )           {
         clauses.push(['عدم العدول', 'لا يحق لأي من الطرفين العدول عن هذا البيع أو الرجوع فيه، ويسري هذا العقد على الطرفين وعلى الخلف العام والخاص لكل منهما.']);
         if (p.multi && p.equal) clauses.push(['المشترون', 'تم دفع الثمن من المشترين بالتساوي بينهم، ولا يحق لأي منهم التصرف في المبيع منفردًا بالبيع أو الرهن أو غيرهما دون موافقة باقي المشترين.']);
         clauses.push(['الموطن المختار', 'يقر كل من الطرفين بأن عنوانه المذكور بصدر هذا العقد هو موطنه المختار، وتصح مراسلته عليه قانونًا ما لم يخطر الطرف الآخر بتغييره بخطاب مسجل بعلم الوصول أو بإنذار على يد محضر.']);
+    } else if (veh) {
+        clauses.push(['السيارة المؤجرة', 'أجّر الطرف الأول للطرف الثاني السيارة الآتية: ' + M('وصف السيارة (الماركة والموديل ورقم اللوحات)', p.property) + '.']);
+        clauses.push(['الغرض والاستعمال', p.use === 'commercial'
+            ? 'أُجرت السيارة للاستعمال في ' + M('الغرض التجاري المتفق عليه') + '، ولا يجوز تغييره ولا التأجير من الباطن ولا نقل الركاب بأجر إلا بموافقة كتابية من المؤجر.'
+            : 'أُجرت السيارة للاستعمال الشخصي فقط، ولا يجوز استعمالها في نقل الركاب بأجر ولا التأجير من الباطن، ولا السفر بها خارج جمهورية مصر العربية إلا بموافقة كتابية من المؤجر.']);
+        clauses.push(['المدة', 'مدة هذا الإيجار ' + M('مدة الإيجار', p.duration) + '، تبدأ من ' + M('تاريخ وساعة الاستلام', p.start) + (p.endDate ? ' وتنتهي في ' + p.endDate : p.endRel ? ' وتنتهي ' + p.endRel : ' وتنتهي في ' + M('تاريخ وساعة الرد')) + '.']);
+        clauses.push(['الأجرة', 'الأجرة المتفق عليها ' + M('قيمة الأجرة', withWords(p.rent)) + '. ' + M('موعد وطريقة السداد', p.rentPay) + '.']);
+        if (p.deposit) clauses.push(['وديعة التأمين', p.depositAmt ? 'يسلّم المستأجر للمؤجر وديعة تأمين قدرها ' + withWords(p.depositAmt) + '، تُرد له عند إعادة السيارة بالحالة المتفق عليها وبعد خصم أي مستحقات أو مخالفات.' : p.deposit + '.']);
+        clauses.push(['التأمين على السيارة', (p.insurance ? p.insurance + '. ' : '') + 'يقر المستأجر بأنه اطلع على وثيقة تأمين السيارة وشروطها ويلتزم بها، ويتحمل قيمة التحمل المتفق عليها عند الحادث.' + (p.insurance ? '' : ' ' + M('نوع التأمين وقيمة التحمل') + '.')]);
+        clauses.push(['التسليم والاستلام', 'يحرر الطرفان عند التسليم وعند الرد محضرًا يصف حالة السيارة: قراءة العداد ' + M('قراءة العداد وقت التسليم', p.km) + '، ومستوى الوقود ' + M('مستوى الوقود وقت التسليم') + '، وأي خدوش أو أضرار، مع صور مؤرخة. ويقر المستأجر باستلام السيارة بعد معاينتها (م 564 و591 مدني).']);
+        const whoBears = (t        ) => /المستاجر/.test(norm(t || '')) ? 'المستأجر' : /المؤجر/.test(norm(t || '')) ? 'المؤجر' : '';
+        clauses.push(['الوقود', (whoBears(p.fuel) ? 'يتحمل ' + whoBears(p.fuel) + ' البنزين' : M('من يتحمل الوقود', p.fuel)) + '. ويُرد الوقود بنفس المستوى المذكور في محضر التسليم، وإلا حُسب الفرق على المستأجر.']);
+        clauses.push(['المسافة والعداد', 'تُرد السيارة بقراءة عداد لا تزيد عن ' + M('حد الكيلومترات المتفق عليه') + '، وأي زيادة تُحسب بسعر ' + M('سعر الكيلومتر الزيادة') + '، ما لم يتفق على غير ذلك.']);
+        clauses.push(['المخالفات والغرامات', (whoBears(p.fines) ? 'يتحمل ' + whoBears(p.fines) + ' مخالفات المرور التي تقع خلال مدة الإيجار' : M('من يتحمل المخالفات', p.fines)) + '. ويلتزم المؤجر بإخطار المستأجر بأي مخالفة ترد بعد الرد خلال ' + M('مدة الإخطار بالمخالفات') + '.']);
+        clauses.push(['الحوادث والسرقة', 'يلتزم المستأجر بإبلاغ المؤجر فورًا وبتحرير محضر شرطة عند أي حادث أو سرقة أو حريق، ولا يجوز له إصلاح السيارة أو التصرف فيها. ويتحمل المستأجر ما لا يغطيه التأمين بسبب مخالفته للشروط أو القيادة بدون رخصة.']);
+        clauses.push(['الصيانة والأعطال', 'يلتزم المؤجر بصيانة السيارة وبصلاحيتها للانتفاع بها طوال المدة (م 567 مدني)، ويلتزم المستأجر بالمحافظة عليها وبإجراء الإصلاحات العاجلة اللازمة لسلامة السير مع إخطار المؤجر.']);
+        clauses.push(['رخصة القيادة', M('بيانات رخصة القيادة', p.licence) + '. ويقر المستأجر بأنه يحمل رخصة قيادة سارية، وأنه المسؤول عن أي مخالفة لقانون المرور، ولا يجوز لغيره قيادة السيارة إلا بموافقة كتابية.']);
+        clauses.push(['التأخير في الرد', (p.late ? withWords(p.late) + ' عن كل يوم تأخير' : M('أجر التأخير عن كل يوم تأخير')) + '.']);
+        clauses.push(['الشرط الجزائي', 'اتفق الطرفان على شرط جزائي قدره ' + M('قيمة الشرط الجزائي', withWords(p.penalty)) + '، يدفعه الطرف الذي يخل بأي شرط من شروط هذا العقد للطرف الآخر (م 223 و224 مدني).']);
+        clauses.push(['فسخ العقد', M('حالات الفسخ', p.termination) + '. ويحق للمؤجر فسخ العقد فورًا وطلب رد السيارة إذا تأخر المستأجر عن سداد الأجرة أو خالف شروط الاستعمال أو تبين أن بياناته غير صحيحة.']);
+        clauses.push(['الموطن المختار', 'يقر كل من الطرفين بأن عنوانه المذكور بصدر هذا العقد هو موطنه المختار، وتصح مراسلته عليه قانونًا ما لم يخطر الطرف الآخر بتغييره بخطاب مسجل بعلم الوصول أو بإنذار على يد محضر.']);
+    } else if (!realty) {
+        clauses.push(['الشيء المؤجر', 'أجّر الطرف الأول للطرف الثاني ' + M('وصف الشيء المؤجر', p.property) + '.']);
+        clauses.push(['الغرض', 'أُجرت للاستعمال في الغرض ' + M('الغرض من الاستعمال') + ' فقط، ولا يجوز تغييره ولا التأجير من الباطن إلا بموافقة كتابية من المؤجر.']);
+        clauses.push(['المدة', 'مدة هذا الإيجار ' + M('مدة الإيجار', p.duration) + '، تبدأ من ' + M('تاريخ بدء الإيجار', p.start) + '.']);
+        clauses.push(['الأجرة', 'الأجرة المتفق عليها ' + M('قيمة الأجرة', withWords(p.rent)) + '. ' + M('موعد وطريقة السداد', p.rentPay) + '.']);
+        if (p.deposit) clauses.push(['وديعة التأمين', p.depositAmt ? 'يسلّم المستأجر للمؤجر وديعة تأمين قدرها ' + withWords(p.depositAmt) + '، تُرد عند رد الشيء بحالته وبعد خصم المستحقات.' : p.deposit + '.']);
+        clauses.push(['التسليم', 'يسلم المؤجر الشيء وملحقاته بحالة تصلح للانتفاع به، ويحرر الطرفان محضرًا يصف حالته وقت التسليم (م 564 مدني).']);
+        clauses.push(['الصيانة والتشغيل', 'يلتزم المؤجر بالإصلاحات الضرورية وبأن يبقى الشيء صالحًا للانتفاع به (م 567 مدني)، ويلتزم المستأجر بالمحافظة عليه وباستعماله فيما أُعد له (م 579 و583 مدني).']);
+        clauses.push(['الرد', 'يلتزم المستأجر برد الشيء عند انتهاء الإيجار بالحالة التي تسلمه عليها، إلا ما أصابه من هلاك أو تلف لسبب لا يد له فيه (م 590 و591 مدني).']);
+        clauses.push(['التنازل', 'لا يجوز للمستأجر التنازل عن الإيجار أو التأجير من الباطن إلا بموافقة كتابية من المؤجر.']);
+        clauses.push(['الشرط الجزائي', 'اتفق الطرفان على شرط جزائي قدره ' + M('قيمة الشرط الجزائي', withWords(p.penalty)) + '، يدفعه الطرف الذي يخل بأي شرط من شروط هذا العقد للطرف الآخر (م 223 و224 مدني).']);
+        clauses.push(['الموطن المختار', 'يقر كل من الطرفين بأن عنوانه المذكور بصدر هذا العقد هو موطنه المختار، وتصح مراسلته عليه قانونًا ما لم يخطر الطرف الآخر بتغييره بخطاب مسجل بعلم الوصول أو بإنذار على يد محضر.']);
     } else {
         clauses.push(['العين المؤجرة', 'أجّر الطرف الأول للطرف الثاني العين الآتي وصفها: ' + M('وصف العين المؤجرة', p.property) + '.']);
         clauses.push(['الغرض', 'أُجرت العين للاستعمال في الغرض ' + M('سكني أو إداري أو تجاري', p.use ? USE_AR[p.use] : '') + ' فقط، ولا يجوز تغييره إلا بموافقة كتابية من المؤجر.']);
@@ -581,6 +823,7 @@ function build(kind      , p        )           {
         clauses.push(['التسليم', 'يسلم المؤجر العين وملحقاتها بحالة تصلح للانتفاع بها فيما أُجرت له (م 564 مدني)، ويحرر الطرفان محضرًا يصف حالتها وقت التسليم، ويقر المستأجر باستلامها بعد معاينتها.']);
         clauses.push(['الصيانة', 'يلتزم المؤجر بصيانة العين وبالترميمات الضرورية دون الترميمات التأجيرية، ما لم يتفق على غير ذلك (م 567 مدني). ويلتزم المستأجر بالترميمات التأجيرية البسيطة، وبأن يبذل في استعمال العين والمحافظة عليها عناية الشخص المعتاد (م 583 مدني)، وباستعمالها فيما أُعدت له (م 579 مدني).']);
         clauses.push(['الرد', 'يلتزم المستأجر برد العين عند انتهاء الإيجار بالحالة التي تسلمها عليها، إلا ما أصابها من هلاك أو تلف لسبب لا يد له فيه (م 590 و591 مدني).']);
+        clauses.push(['الشرط الجزائي', 'اتفق الطرفان على شرط جزائي قدره ' + M('قيمة الشرط الجزائي', withWords(p.penalty)) + '، يدفعه الطرف الذي يخل بأي شرط من شروط هذا العقد للطرف الآخر (م 223 و224 مدني).']);
         clauses.push(['التنازل', 'لا يجوز للمستأجر التنازل عن الإيجار أو التأجير من الباطن إلا بموافقة كتابية من المؤجر.']);
     }
     clauses.push(['الاختصاص', 'يخضع هذا العقد للقانون المصري، وتختص محكمة ' + M('اسم المحكمة') + ' بنظر ما ينشأ عنه من نزاع.']);
@@ -627,11 +870,12 @@ const svg = (n, c) => '<svg class="i ' + (c || '') + '" aria-hidden="true"><use 
 const ICON_ALERT = svg('alert', 'sm'), ICON_INFO = svg('info', 'sm'), ICON_OK = svg('check', 'sm');
 const esc = (s) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const TEMPLATE_VER = 'نسخة القالب 1.0 · ٢٦ نوفمبر ٢٠٢٦';
-let kind = 'sale', lastPlain = '', recording = false, rec = null, base = '';
+let kind = 'sale', asset = '', lastCls = 'home', lastPlain = '', recording = false, rec = null, base = '';
 function setKind(k) { kind = k; $('k-sale').className = k === 'sale' ? 'on' : ''; $('k-lease').className = k === 'lease' ? 'on' : ''; $('txt').value = ''; $('out').hidden = true; $('dock').hidden = true; }
 $('k-sale').onclick = () => setKind('sale');
 $('k-lease').onclick = () => setKind('lease');
-$('ex').onclick = () => { $('txt').value = SAMPLES[kind]; render(); };
+document.querySelectorAll('#assetrow button').forEach((b) => { b.onclick = () => { asset = b.dataset.asset || ''; document.querySelectorAll('#assetrow button').forEach((x) => { x.className = (x.dataset.asset || '') === asset ? 'on' : ''; }); if (!$('out').hidden) render(); }; });
+$('ex').onclick = () => { const k0 = asset ? kind + ':' + asset : (kind === 'sale' ? 'sale' : 'lease'); $('txt').value = SAMPLES[k0] || SAMPLES[kind]; render(); };
 $('clr').onclick = () => { $('txt').value = ''; $('out').hidden = true; $('dock').hidden = true; };
 $('go').onclick = render;
 const ph = (s) => s.split(/(\u0001[^\u0002]*\u0002)/).filter(Boolean).map((x) => x.startsWith('\u0001') ? '<mark>[' + esc(x.slice(1, -1)) + ']</mark>' : esc(x)).join('');
@@ -651,7 +895,9 @@ function render() {
   const text = $('txt').value;
   if (!text.trim()) { status('اكتب أو سجّل الاتفاق أولًا، ثم اضغط «اكتب العقد».', true); $('txt').focus(); return; }
   status('');
-  const p = parse(kind, text), checks = runChecks(kind, p), lines = build(kind, p);
+  const cls = asset || detectAsset(text);
+  lastCls = cls;
+  const p = parse(kind, text, cls), checks = runChecks(kind, p, cls), lines = build(kind, p, cls);
   const real = checks.filter((c) => !c.info), missing = real.filter((c) => !c.ok).length, okc = real.length - missing;
   $('sum').className = 'sum' + (missing ? ' bad' : '');
   const pct = Math.round(okc / real.length * 100);
@@ -660,8 +906,11 @@ function render() {
   const need = checks.filter((c) => !c.info && !c.ok), infos = checks.filter((c) => c.info), oks = checks.filter((c) => !c.info && c.ok);
   $('checks').innerHTML = (need.length ? '<h3>' + ICON_ALERT + 'يحتاج انتباه</h3>' + need.map((c) => card(c, 'x', ICON_ALERT)).join('') : '') + (infos.length ? '<h3>' + ICON_INFO + 'معلومات قانونية</h3>' + infos.map((c) => card(c, 'i', ICON_INFO)).join('') : '') + (oks.length ? '<h3>' + ICON_OK + 'موجود في كلامك</h3><div class="oks">' + oks.map((c) => '<span class="ok">' + ICON_OK + esc(c.name) + (c.art ? ' <span class="art">' + c.art + '</span>' : '') + '</span>').join('') + '</div>' : '');
   $('doc').innerHTML = docHtml(lines);
+  const dp = $('disc-prop'); if (dp) dp.hidden = cls !== 'home' && cls !== 'shop' && cls !== 'land';
   lastPlain = lines.map((l) => l.replace(/^# /, '').replace(/\u0001([^\u0002]*)\u0002/g, '[$1]')).join('\n\n') + '\n\n' + TEMPLATE_VER + ' · مسودة استرشادية تحتاج مراجعة محامٍ';
-  const show = kind === 'sale' ? ['م 418', 'م 419', 'م 428', 'م 430', 'م 431', 'م 435', 'م 439', 'م 447', 'م 458', 'م 462', 'م 223', 'م 224', 'م 934'] : ['م 558', 'م 559', 'م 562', 'م 564', 'م 567', 'م 579', 'م 583', 'م 590', 'م 591', 'م 593'];
+  const show = kind === 'sale' && !(cls === 'vehicle' || cls === 'equipment' || cls === 'other') ? ['م 418', 'م 419', 'م 428', 'م 430', 'م 431', 'م 435', 'م 439', 'م 447', 'م 458', 'م 462', 'م 223', 'م 224', 'م 934']
+    : kind === 'sale' ? ['م 418', 'م 419', 'م 428', 'م 431', 'م 435', 'م 439', 'م 447', 'م 223', 'م 224']
+    : ['م 558', 'م 559', 'م 562', 'م 564', 'م 567', 'م 579', 'م 583', 'م 590', 'م 591', 'م 593', 'م 223', 'م 224'];
   $('refs').innerHTML = REFS.filter((r) => show.includes(r.n)).map((r) => '<div class="ref"><b>' + r.n + '</b><span>' + esc(r.t) + '</span></div>').join('');
   $('out').hidden = false; $('dock').hidden = false;
   $('out').scrollIntoView({ behavior: window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
@@ -709,10 +958,11 @@ $('word').onclick = () => {
   const paras = lastPlain.split('\n\n').map((l) => l.replace(/\n/g, ' ')).filter(Boolean);
   const bytes = makeDocx(paras);
   const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([bytes], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' }));
-  a.download = (kind === 'sale' ? 'sale-contract' : 'lease-contract') + '.docx'; document.body.appendChild(a); a.click(); a.remove();
+  a.download = (kind === 'sale' ? (lastCls === 'vehicle' ? 'car-sale-contract' : 'sale-contract') : lastCls === 'vehicle' ? 'car-rental-contract' : 'lease-contract') + '.docx'; document.body.appendChild(a); a.click(); a.remove();
   setTimeout(() => URL.revokeObjectURL(a.href), 60000);
 };
 $('prt').onclick = () => window.print();
+if (window.Capacitor) $('prt').style.display = 'none'; // window.print() does nothing inside an Android WebView
 function route() {
   const h = (location.hash || '').replace(/^#\/?/, '');
   const ok = ['about', 'terms', 'privacy', 'disclaimer', 'contact'].includes(h);
@@ -727,11 +977,11 @@ const TITLE0 = document.title;
 addEventListener('hashchange', route); route();
 const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
 function status(m, err) { $('status').className = err ? 'err' : ''; $('status').textContent = m || ''; }
-function stopRec() { recording = false; if (rec) { try { rec.stop(); } catch (e) {} } $('mic').className = 'mic'; $('mic').innerHTML = svg('mic'); $('miclbl').textContent = 'تسجيل'; }
+function stopRec() { recording = false; if (rec) { try { rec.stop(); } catch (e) {} } $('mic').className = 'mic'; $('mic').innerHTML = svg('mic'); $('miclbl').textContent = 'تسجيل'; $('mic').setAttribute('aria-label', 'ابدأ التسجيل'); }
 $('mic').onclick = () => {
   if (!SR) { status('هذا المتصفح لا يدعم التعرف على الكلام. افتح الصفحة في Chrome، أو اكتب بيدك، أو استخدم ميكروفون لوحة المفاتيح.', true); return; }
   if (recording) { stopRec(); status('توقف التسجيل.'); return; }
-  base = $('txt').value; recording = true; $('mic').className = 'mic rec'; $('mic').innerHTML = svg('mic-off'); $('miclbl').textContent = 'إيقاف'; status('جاري الاستماع... تكلم.');
+  base = $('txt').value; recording = true; $('mic').className = 'mic rec'; $('mic').innerHTML = svg('mic-off'); $('miclbl').textContent = 'إيقاف'; $('mic').setAttribute('aria-label', 'إيقاف التسجيل'); status('جاري الاستماع... تكلم.');
   const start = () => {
     rec = new SR(); rec.lang = 'ar-EG'; rec.interimResults = true; rec.continuous = false;
     rec.onresult = (e) => {
@@ -762,4 +1012,4 @@ $('mic').onclick = () => {
 </script>
 <script>(function(){var s=document.createElement('style');s.textContent=document.getElementById('fontcss').textContent;document.head.appendChild(s);})();</script>
 </body>
-      </html>
+</html>
